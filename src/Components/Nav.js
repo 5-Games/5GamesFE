@@ -11,7 +11,7 @@ const Nav = () => {
     dispatch(userActions.logoutUser());
   };
 
-  // const name = useSelector(state => state.user.username);
+  const name = useSelector(state => state.user.username);
   
   return (
     <nav className='nav-bar'>
@@ -20,17 +20,16 @@ const Nav = () => {
       </div>
       <div className='nav-links-div'>
         <Link className='nav-link' to="/">HOME</Link>
-        {/* { name  
+        { name  
           ? <> 
-              put links here that show when logged in
-              <Link className='nav-link' to="/portfolio">PORTFOLIO</Link>
-              <Link className='nav-link' to="/transactions">TRANSACTIONS</Link>
+              {/* put links here that show when logged in */}
+              (links will be here)
             </>
           : <> 
               <Link className='nav-link' to="/signup">SIGNUP</Link>
               <Link className='nav-link' to="/login">LOGIN</Link>
             </>
-        } */}
+        }
         <Link className='nav-link' to="/" onClick={handleLogout}>
           LOGOUT
         </Link>
