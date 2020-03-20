@@ -20,8 +20,7 @@ const Home = () => {
   return <div className="row">
           <div className="auth-box">
             <h1>
-              Welcome to Five Games, 
-              an app by 
+              Welcome to Five Games, an app by 
               <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a>
               &nbsp;and 
               <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>
