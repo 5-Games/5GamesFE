@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import userActions from '../redux/actions.js';
 
@@ -11,6 +11,13 @@ const Signup = props => {
     username: '',
     password: ''
   });
+
+  // Setting the document title using Hooks.
+  // Could use react-document-title instead:
+  // https://github.com/gaearon/react-document-title
+  useEffect(() => {
+    document.title = "Signup | 5 Games"
+  }, []);
 
   // Controlled form functions
   const handleChange = e =>
