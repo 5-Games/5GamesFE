@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import userActions from '../redux/actions';
 import { useSelector } from 'react-redux';
-import logo from '../five-games-logo.png'; 
+import logo from '../five-games-logo-500.png';
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -19,20 +19,24 @@ const Nav = () => {
         <Link className='nav-link' to="/"><img className='logo-img' src={logo} alt="Five Games Logo"/></Link>
       </div>
       <div className='nav-links-div'>
-        <Link className='nav-link' to="/">HOME</Link>
+        <Link className='nav-link' to="/">Home</Link>
         { name  
           ? <> 
               {/* put links here that show when logged in */}
-              (links will be here)
+              
             </>
           : <> 
-              <Link className='nav-link' to="/signup">SIGNUP</Link>
-              <Link className='nav-link' to="/login">LOGIN</Link>
+              <Link className='nav-link' to="/signup">Signup</Link>
+              <Link className='nav-link' to="/login">Login</Link>
             </>
         }
-        <Link className='nav-link' to="/" onClick={handleLogout}>
-          LOGOUT
-        </Link>
+        { name  
+          ? <Link className='nav-link' to="/" onClick={handleLogout}>
+              Logout
+            </Link>
+          : null
+        }
+        
       </div>
     </nav>
   );

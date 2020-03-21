@@ -26,7 +26,9 @@ const App = () => {
   return (
     <Router>
       <Nav />
-      <Routes />
+      <div className='routes'>
+        <Routes />
+      </div>
     </Router>
   );
 };
