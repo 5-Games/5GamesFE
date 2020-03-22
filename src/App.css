@@ -93,3 +93,52 @@ a:hover {
   transition-timing-function: ease;
 }
 
+table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
+  font-size:14px;
+}
+
+.game-table-div {
+  white-space: pre-wrap;
+}
+
+.game_summary {
+  padding: 0;
+  margin: 0 25px 25px 0;
+  width: 245px;
+  background: #fff;
+  border: 1px dotted #747678;
+  display: inline-block;
+}
+
+.game_summary table {
+  /* border-bottom: 1px dotted #747678; */
+  width: 100%;
+  padding: 4px;
+  white-space: normal;
+}
+
+td.center, th.center {
+  text-align: center;
+}
+
+td.right, th.right {
+  text-align: right;
+}
+
+.winner {
+  font-weight: bold;
+}
+
+.box-links {
+  font-size:14px;
+  text-align: center;
+  padding: 4;
+}
+
+.teams {
+  border-bottom: 1px dotted #747678;
+}
