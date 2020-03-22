@@ -4,7 +4,8 @@
 // return value of the reducer beccomes the new Redux state
 
 const initialState = {
-  user: {}
+  user: {},
+  currentGame: '20200308/LALLAC'
 }
 
 export default (state = initialState, { type, payload }) => {

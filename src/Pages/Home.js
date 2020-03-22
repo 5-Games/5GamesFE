@@ -19,7 +19,7 @@ const Home = () => {
     null
   ) : (
     <>
-      <br></br>
+      <br />
       <h3>Please <Link className='home-link' to="/signup">sign up</Link> or <Link className='home-link' to="/login">log in</Link>.</h3>
     </>
   );
@@ -30,6 +30,8 @@ const Home = () => {
               Welcome to Five Games
               </h1>
               An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
+              <br />
+              <Link to="/game">Temporary link to current game.</Link>
             { noUser }
           </div>
         </div>
