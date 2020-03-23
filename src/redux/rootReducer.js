@@ -5,15 +5,25 @@
 
 const initialState = {
   user: {},
+  dateGames: {
+    date: new Date('March 11, 2020 12:00:00'),
+    games: []
+  },
   currentGame: '20200308/LALLAC'
 }
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
+    // user reducers:
     case 'SET_USER':
       return {...state, user: payload};
     case 'CLEAR_USER':
       return initialState;
+
+    // dateGame reducers:
+    case 'SET_DATE_GAMES':
+      return {...state, dateGames: {...state.dateGames, games: payload}};
+
     default:
       return state;
   }

@@ -16,18 +16,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-weight: 300;
-}
-
-.routes {
-  margin: 0;
-  max-width: 1200px;
-  padding: 0 16px;
-  width: 100%;
 }
 
 a {
@@ -49,6 +43,52 @@ a:hover {
   transition-timing-function: ease;
 }
 
+input[type=text] {
+  color: var(--white);
+  text-align: center;
+  background-color: var(--darkBlue);
+  border: none;
+  font-weight: normal;
+  font-size: 15px;
+  outline: none;
+}
+
+input[type=text]:hover {
+  border: 1px solid var(--white);
+}
+
+input[type=text]:focus {
+  border: 1px solid var(--white);
+}
+
+h1 {
+  color: var(--white);
+  text-align: center;
+  padding: 18px 0 16px 0;
+  background-color: var(--medBlue);
+  font-weight: normal;
+  font-size: 15px;
+  height: 54px;
+}
+
+h2 {
+  color: var(--white);
+  text-align: center;
+  padding: 18px 0 16px 0;
+  background-color: var(--darkBlue);
+  font-weight: normal;
+  font-size: 15px;
+  height: 54px;
+}
+
+table {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: grey;
+  font-size:14px;
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -60,6 +100,11 @@ a:hover {
 .logo-img {
   height: 54px;
   vertical-align: middle;
+  color: var(--white);
+}
+
+.logo-img:hover {
+  border: none;
 }
 
 .nav-links-div {
@@ -93,12 +138,50 @@ a:hover {
   transition-timing-function: ease;
 }
 
-table {
+.active-nav-link {
+  margin-right: 1em;
+  font-size: 1em;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: normal;
+  display: inline-block;
+  border-bottom-color: var(--white);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  box-sizing: border-box;
+}
+
+.routes {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.row {
+  padding-top: 16px;
+  align-items: center;
+  text-align: center;
+}
+
+.double-column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
   display: table;
-  border-collapse: separate;
-  border-spacing: 2px;
-  border-color: grey;
-  font-size:14px;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .double-column {
+    width: 100%;
+    margin-bottom: 16px;
+  }
 }
 
 .game-table-div {
@@ -142,3 +225,37 @@ td.right, th.right {
 .teams {
   border-bottom: 1px dotted #747678;
 }
+
+.react-datepicker {
+  left: -46px;
+  top: 10px;
+  border-color: var(--white);
+  border-radius: 0px;
+}
+
+.react-datepicker__header {
+  color: var(--white);
+  background-color: var(--darkBlue);
+  border-color: var(--darkBlue);
+  border-radius: 0px;
+}
+
+.react-datepicker__current-month {
+  color: var(--white);
+  /* background-color: green */
+}
+
+.react-datepicker__day-name {
+  color: var(--white);
+  /* background-color: green */
+}
+
+.react-datepicker__day--selected {
+  background-color: var(--blue);
+  /* background-color: green */
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: var(--darkBlue);
+}
+

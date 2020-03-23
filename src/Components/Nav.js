@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import userActions from '../redux/actions';
 import { useSelector } from 'react-redux';
@@ -16,18 +16,20 @@ const Nav = () => {
   return (
     <nav className='nav-bar'>
       <div className='logo-div'>
-        <Link className='nav-link' to="/"><img className='logo-img' src={logo} alt="Five Games Logo"/></Link>
+        <Link className='logo-img' to="/"><img className='logo-img' src={logo} alt="Five Games Logo"/></Link>
+        <Link className='logo-img' to="/">5 GAMES</Link>
+        {/* I want to put just the text "Five Games" here as an image as the link to home */}
       </div>
       <div className='nav-links-div'>
-        <Link className='nav-link' to="/">Home</Link>
+        {/* <NavLink className='nav-link' to="/" >Home</NavLink> */}
         { name  
           ? <> 
               {/* put links here that show when logged in */}
-              
+              <NavLink className='nav-link' to="/playlist/create" activeClassName='active-nav-link'>Create</NavLink>
             </>
           : <> 
-              <Link className='nav-link' to="/signup">Signup</Link>
-              <Link className='nav-link' to="/login">Login</Link>
+              <NavLink className='nav-link' to="/signup" activeClassName='active-nav-link'>Signup</NavLink>
+              <NavLink className='nav-link' to="/login" activeClassName='active-nav-link'>Login</NavLink>
             </>
         }
         { name  

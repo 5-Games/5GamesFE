@@ -24,15 +24,29 @@ const Home = () => {
     </>
   );
 
-  return <div className="row">
-          <div className="auth-box">
-            <h1>
-              Welcome to Five Games
-              </h1>
+  return <div className="home-page">
+          <h1>
+            WELCOME TO FIVE GAMES
+          </h1>
+          <div className="row">
+            <div className="single-column">
               An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
-              <br />
-              <Link to="/game">Temporary link to current game.</Link>
-            { noUser }
+            </div>
+          </div>
+          <div className="row">
+            <div className="single-column">
+            <Link to="/game">Temporary link to current game.</Link>
+            </div>
+          </div>
+          <div className="row">
+            <div className="single-column">
+              <Link to="/playlist/create">Temporary link to create playlist.</Link>
+            </div>
+          </div>
+          <div className="row">
+            <div className="single-column">
+              { noUser }
+            </div>
           </div>
         </div>
 };
