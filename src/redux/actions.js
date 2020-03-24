@@ -98,18 +98,11 @@ const logoutUser = () => dispatch => {
 
 // BDL Actions
 const getDateGames = date => dispatch => {
-  // const config = {
-  //   method: 'GET',
-  //   headers: {
-  //     start_date: date,
-  //     end_date: date
-  //   }
-  // };
   fetch(BDL_GAME_DATES_URL(date))
     .then(r => r.json())
     .then(data => {
-      console.log(data)
-      dispatch(setDateGamesAction(data['data']));
+      // console.log(data)
+      dispatch(setDateGamesAction([date, data['data']]));
     });
 };
 

@@ -6,6 +6,7 @@
 const initialState = {
   user: {},
   dateGames: {
+    // When NBA games resume, change the value of date to today
     date: new Date('March 11, 2020 12:00:00'),
     games: []
   },
@@ -22,7 +23,7 @@ export default (state = initialState, { type, payload }) => {
 
     // dateGame reducers:
     case 'SET_DATE_GAMES':
-      return {...state, dateGames: {...state.dateGames, games: payload}};
+      return {...state, dateGames: {date: payload[0], games: payload[1]}};
 
     default:
       return state;
