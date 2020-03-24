@@ -86,7 +86,7 @@ table {
   border-collapse: separate;
   border-spacing: 2px;
   border-color: grey;
-  font-size:14px;
+  font-size: 14px;
 }
 
 .nav-bar {
@@ -242,17 +242,14 @@ td.right, th.right {
 
 .react-datepicker__current-month {
   color: var(--white);
-  /* background-color: green */
 }
 
 .react-datepicker__day-name {
   color: var(--white);
-  /* background-color: green */
 }
 
 .react-datepicker__day--selected {
   background-color: var(--blue);
-  /* background-color: green */
 }
 
 .react-datepicker__day--selected:hover {

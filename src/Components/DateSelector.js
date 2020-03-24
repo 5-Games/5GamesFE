@@ -34,7 +34,7 @@ const DateSelector = () => {
     return [year, month, day].join('-').toString();
   }
 
-  // 
+  // On loading component, get date from State and set start date to lastGame
   useEffect(() => {
     dispatch(actions.getDateGames(formatDate(dateFromState)))
     setStartDate(lastGame)
@@ -44,7 +44,7 @@ const DateSelector = () => {
   return (
     <DatePicker
       selected={startDate}
-      // hide the arrow from calendar to input field:
+      // style decision: hide the mini arrow from calendar to input field:
       showPopperArrow={false}
       startDate={lastGame}
       // filterDate is preventing picker from showing dates after lastGame
