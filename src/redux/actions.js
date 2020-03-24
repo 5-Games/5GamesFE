@@ -1,46 +1,43 @@
 // API CONSTANTS
 
 // Backend Constants
-const BASE_URL = 'http://localhost:3000';
-const USERS_URL = BASE_URL + '/users';
-const PERSIST_URL = BASE_URL + '/auth';
-const LOGIN_URL = BASE_URL + '/login';
-const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
+  const BASE_URL = 'http://localhost:3000';
+  const USERS_URL = BASE_URL + '/users';
+  const PERSIST_URL = BASE_URL + '/auth';
+  const LOGIN_URL = BASE_URL + '/login';
+  const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
 
 // Frontend Constants
-  // add API constants here
+  // Ball Dont Lie Constants
+  const BDL_API_URL = 'https://www.balldontlie.io/api/v1'
+  const BDL_GAMES_URL = BDL_API_URL + '/games'
+  // https://www.balldontlie.io/api/v1/games?start_date=2020-03-01&start_date=2020-03-01
+  // https://www.balldontlie.io/api/v1/games?start_date=2020-03-09&start_date=2020-03-09
+  const BDL_GAME_DATES_URL = date => BDL_GAMES_URL + '?start_date=' + date + '&end_date=' + date;
 
 // Redux Actions
 
-const setUserAction = userObj => {
-  return {
-    type: 'SET_USER',
-    payload: userObj
-  }
-};
+  // User Actions
+    const setUserAction = userObj => {
+      return {
+        type: 'SET_USER',
+        payload: userObj
+      }
+    };
 
-const clearUserAction = () => ({
-  type: 'CLEAR_USER'
-});
+    const clearUserAction = () => ({
+      type: 'CLEAR_USER'
+    });
+
+  // Date Game Actions
+    const setDateGamesAction = gamesObj => {
+      return {
+        type: 'SET_DATE_GAMES',
+        payload: gamesObj
+      }
+    }
 
 // Fetch
-
-// Pattern for new user (without error handling):
-// const newUserToDB = userObj => dispatch => {
-//   const config = {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(userObj)
-//   };
-//   fetch(USERS_URL, config)
-//     .then(r => r.json())
-//     .then(data => {
-//       dispatch(setUserAction(data.user));
-//       localStorage.setItem('token', data.token);
-//     });
-// };
 
 // Pattern for new user (with error handling):
 const newUserToDB = userObj => {
@@ -66,23 +63,6 @@ const deleteUserFromDB = userId => dispatch => {
       localStorage.clear();
   });
 };
-
-// Pattern to login user (without error Handling):
-// const loginUserToDB = userCredentials => dispatch => {
-//   const config = {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(userCredentials)
-//   };
-//   fetch(LOGIN_URL, config)
-//     .then(r => r.json())
-//     .then(data => {
-//       dispatch(setUserAction(data.user));
-//       localStorage.setItem('token', data.token);
-//     })
-// };
 
 // Pattern to login (with error handling):
 const loginUserToDB = userCredentials => {
@@ -116,11 +96,22 @@ const logoutUser = () => dispatch => {
   localStorage.clear();
 };
 
+// BDL Actions
+const getDateGames = date => dispatch => {
+  fetch(BDL_GAME_DATES_URL(date))
+    .then(r => r.json())
+    .then(data => {
+      // console.log(data)
+      dispatch(setDateGamesAction([date, data['data']]));
+    });
+};
+
 export default {
   newUserToDB,
   deleteUserFromDB,
   loginUserToDB,
   persistUser,
   logoutUser,
-  setUserAction
+  setUserAction,
+  getDateGames
 };

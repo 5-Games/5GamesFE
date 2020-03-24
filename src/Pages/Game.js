@@ -99,11 +99,9 @@ const Game = () => {
             <h1>
               {currentGame}
             </h1>
-            <p>
-              <div className='game-table-div'>
-                {game}
-              </div>
-            </p>
+            <div className='game-table-div'>
+              {game}
+            </div>
             { noUser } 
         </div>
 };
