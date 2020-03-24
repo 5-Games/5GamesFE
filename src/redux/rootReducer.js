@@ -4,13 +4,14 @@
 // return value of the reducer beccomes the new Redux state
 
 const initialState = {
-  user: {},
+  createPlaylistGames: [["Game 1"],["Game 2"],["Game 3"],["Game 4"],["Game 5"]],
+  currentGame: '20200308/LALLAC',
   dateGames: {
     // When NBA games resume, change the value of date to today
     date: new Date('March 11, 2020 12:00:00'),
     games: []
   },
-  currentGame: '20200308/LALLAC'
+  user: {},
 }
 
 export default (state = initialState, { type, payload }) => {

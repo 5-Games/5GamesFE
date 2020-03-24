@@ -10,6 +10,7 @@ const CreatePlaylist = () => {
   // Get variables from Redux state
   const user = useSelector(state => state.user);
   const dateGames = useSelector(state => state.dateGames);
+  const createPlaylistGames = useSelector(state => state.createPlaylistGames);
 
   // Setting the document title using Hooks.
   // Could use react-document-title instead:
@@ -18,8 +19,15 @@ const CreatePlaylist = () => {
     document.title = `Create | 5 Games`
   }, []);
 
-  // simpleGames renders the game components by iterating over dateGames
-  const simpleGames = dateGames["games"].map((game, i) =>
+  // dateGamesMap renders the game components by iterating over dateGames
+  const dateGamesMap = dateGames["games"].map((game, i) =>
+                        <SimpleGame 
+                          key={i} 
+                          game={game}
+                        />)
+
+  // createPlaylistGamesMap renders the game components by iterating over dateGames
+  const createPlaylistGamesMap = createPlaylistGames.map((game, i) =>
                         <SimpleGame 
                           key={i} 
                           game={game}
@@ -34,10 +42,16 @@ const CreatePlaylist = () => {
       </h2>
       <div className='row'>
         <div className='double-column'>
-          {simpleGames}
+          <h3>
+            Click or drag a game to remove it from your playlist.
+          </h3>
+          {createPlaylistGamesMap}
         </div>
         <div className='double-column'>
-          right column
+          <h3>
+            Click or drag a game to add it to your playlist.
+          </h3>
+          {dateGamesMap}
         </div>
       </div>
     </>

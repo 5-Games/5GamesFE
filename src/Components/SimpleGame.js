@@ -1,59 +1,58 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import userActions from '../redux/actions';
+import Draggable from 'react-draggable';
 
 const SimpleGame = props => {
-  // initializing dispatch
-  // const dispatch = useDispatch();
-  // Setting up local state using the useState hook
-  // const [stock, setStock] = useState({
-  //   ticker: props.ticker,
-  //   quantity: props.quantity,
-  //   latestPrice: 0,
-  //   open: 0
-  // });
+  // visitorWinner and homeWinner are used to change the className and bold the team name of the winner
+  const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
+  const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
 
-  // useEffect acts like componentDidMount for Hooks
-  // useEffect(() => {
-  //   userActions.getQuote(ticker)
-  //   .then(data => {
-  //     // getting IEX data. if there is no open price, setting open to latestPrice
-  //     setStock({...stock, latestPrice: data.latestPrice || 0, open: data.open || data.latestPrice})
-  //     // updating redux state with values from IEX. Setting to 0 if API calls fails to prevent NaN values.
-  //     dispatch(userActions.setShareValue(data.symbol, data.latestPrice || 0, data.open || 0))
-  //   })
-  // }, [props.quantity])
-
-  // Destructuring keys from local state to use in the form
-  // const { ticker, latestPrice, open } = stock;
-
-  // Getting Stock Quantity from State to force component to reload
-  // const stateQuantity = useSelector(state => state.portfolio[ticker].quantity);
-
-  console.log(props)
+  // Renders either a game from the game selector or an empty game object for the playlist
+  const renderGame = (
+    props.game["id"] ?
+      <div className="game-table-div" >
+        <Draggable
+          bounds="body"
+        >
+          <div className="simple-game-summary">
+            <table>
+              <tbody>     
+                <tr className={visitorWinner}>
+                  <td className="simple-team-name">{props.game['visitor_team']['full_name']}</td>
+                  <td className="right">{props.game['visitor_team_score']}</td>
+                  <td className="right game-summary-final">
+                    Final
+                  </td>
+                </tr>
+                <tr className={homeWinner}>
+                  <td className="simple-team-name">{props.game['home_team']['full_name']}</td>
+                  <td className="right">{props.game['home_team_score']}</td>
+                  <td className="right">&nbsp;
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Draggable>
+      </div>
+    :
+    <div className="game-table-div" >
+          <Draggable
+      bounds="body"
+      onStart={() => false}
+    >
+      <div className="create-playlist-box" >
+        {props.game}
+      </div>
+    </Draggable>
+    </div>
+  )
 
   return (
-    <div className="SimpleGame" >
-      <div className="game_summary expanded nohover">
-        <table className="teams">
-          <tbody>       
-            <tr>
-              <td>{props.game['visitor_team']['full_name']}</td>
-              <td className="right">{props.game['visitor_team_score']}</td>
-              <td className="right gamelink">
-                Final
-              </td>
-            </tr>
-            <tr>
-              <td>{props.game['home_team']['full_name']}</td>
-              <td className="right">{props.game['home_team_score']}</td>
-              <td className="right">&nbsp;
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <>
+    {renderGame}
+    </>
   )
 }
 

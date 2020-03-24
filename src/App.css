@@ -81,6 +81,14 @@ h2 {
   height: 54px;
 }
 
+h3 {
+  text-align: center;
+  padding: 0 0 16px 0;
+  font-weight: normal;
+  font-size: 15px;
+  /* height: 54px; */
+}
+
 table {
   display: table;
   border-collapse: separate;
@@ -159,14 +167,20 @@ table {
 }
 
 .row {
-  padding-top: 16px;
+  /* padding-top: 16px; */
   align-items: center;
   text-align: center;
+}
+
+.single-column {
+  float: left;
+  padding: 16px;
 }
 
 .double-column {
   float: left;
   width: 50%;
+  padding: 16px;
 }
 
 /* Clear floats after the columns */
@@ -186,19 +200,17 @@ table {
 
 .game-table-div {
   white-space: pre-wrap;
+  height: 53;
 }
 
 .game_summary {
-  padding: 0;
-  margin: 0 25px 25px 0;
   width: 245px;
-  background: #fff;
-  border: 1px dotted #747678;
+  border: 1px solid var(--blue);
   display: inline-block;
 }
 
 .game_summary table {
-  /* border-bottom: 1px dotted #747678; */
+  /* border-bottom: 1px solid var(--blue); */
   width: 100%;
   padding: 4px;
   white-space: normal;
@@ -223,7 +235,11 @@ td.right, th.right {
 }
 
 .teams {
-  border-bottom: 1px dotted #747678;
+  border-bottom: 1px solid var(--blue);
+}
+
+.game-summary-final {
+  font-weight: bold;
 }
 
 .react-datepicker {
@@ -256,3 +272,32 @@ td.right, th.right {
   background-color: var(--darkBlue);
 }
 
+.simple-game-summary {
+  height: 50px;
+  width: 245px;
+  border: 1px solid var(--blue);
+  display: inline-block;
+  background-color: var(--white);
+}
+
+.simple-game-summary table {
+  /* border-bottom: 1px solid var(--blue); */
+  width: 100%;
+  padding: 4px;
+  white-space: normal;
+}
+
+.simple-team-name {
+  text-align: left;
+}
+
+.create-playlist-box {
+  padding: 24px;
+  height: 68px;
+  width: 245px;
+  border: 1px solid var(--blue);
+  display: inline-block;
+  background-color: var(--white);
+  text-align: center;
+  margin: 0 0 3px 0;
+}
