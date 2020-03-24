@@ -22,7 +22,7 @@ const CreatePlaylist = () => {
   // dateGamesMap renders the game components by iterating over dateGames
   const dateGamesMap = dateGames["games"].map((game, i) =>
                         <SimpleGame 
-                          key={i} 
+                          key={game["id"]} 
                           game={game}
                         />)
 
