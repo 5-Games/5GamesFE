@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import userActions from '../redux/actions';
-import Draggable from 'react-draggable';
+// import Draggable from 'react-draggable';
 
 const SimpleGame = props => {
   // visitorWinner and homeWinner are used to change the className and bold the team name of the winner
@@ -12,9 +12,9 @@ const SimpleGame = props => {
   const renderGame = (
     props.game["id"] ?
       <div className="game-table-div" >
-        <Draggable
+        {/* <Draggable
           bounds="body"
-        >
+        > */}
           <div className="simple-game-summary">
             <table>
               <tbody>     
@@ -31,21 +31,29 @@ const SimpleGame = props => {
                   <td className="right">&nbsp;
                   </td>
                 </tr>
+                <tr className="simple-game-link-tr">
+                  <td className="simple-game-link-td" colspan="3">
+                    Add to Playlist | Game Summary
+                  </td>
+                  {/* <td>
+                    Game Summary
+                  </td> */}
+                </tr>
               </tbody>
             </table>
           </div>
-        </Draggable>
+        {/* </Draggable> */}
       </div>
     :
     <div className="game-table-div" >
-          <Draggable
+    {/* <Draggable
       bounds="body"
       onStart={() => false}
-    >
+    > */}
       <div className="create-playlist-box" >
         {props.game}
       </div>
-    </Draggable>
+    {/* </Draggable> */}
     </div>
   )
 
