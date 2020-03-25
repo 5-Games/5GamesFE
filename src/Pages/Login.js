@@ -18,25 +18,15 @@ const LoginPage = props => {
     document.title = "Login | 5 Games"
   }, []);
 
-  // controlled form functions
-  // login without error handling
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   dispatch(userActions.loginUserToDB(loginForm));
-  //   props.history.push('/');
-  // };
-
-  // The following could be used for error handling:
+  // Login a user (with error handling):
   const handleSubmit = e => {
     e.preventDefault();
     userActions.loginUserToDB(loginForm)
     .then(data => {
       if(!data.user) {
-          // console.log(data.errors);
           alert(data.errors);
           return;
       } else {
-        // console.log(data)
         dispatch(userActions.setUserAction(data.user));
         localStorage.setItem('token', data.token);
         props.history.push('/');

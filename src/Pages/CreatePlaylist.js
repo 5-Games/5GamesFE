@@ -38,19 +38,19 @@ const CreatePlaylist = () => {
     // content when user is logged in
     <>
       <h2>
-        <DateSelector />
+        Select games by (dropdown date): <DateSelector />
       </h2>
       <div className='row'>
         <div className='double-column'>
           <h3>
-            Click or drag a game to remove it from your playlist.
+            Add 5 Games to create a playlist
           </h3>
           {createPlaylistGamesMap}
         </div>
         <div className='double-column'>
-          <h3>
+          {/* <h3>
             Click or drag a game to add it to your playlist.
-          </h3>
+          </h3> */}
           {dateGamesMap}
         </div>
       </div>

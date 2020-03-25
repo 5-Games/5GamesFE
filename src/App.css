@@ -200,7 +200,6 @@ table {
 
 .game-table-div {
   white-space: pre-wrap;
-  height: 53;
 }
 
 .game_summary {
@@ -273,7 +272,7 @@ td.right, th.right {
 }
 
 .simple-game-summary {
-  height: 50px;
+  /* height: 65px; */
   width: 245px;
   border: 1px solid var(--blue);
   display: inline-block;
@@ -289,6 +288,15 @@ td.right, th.right {
 
 .simple-team-name {
   text-align: left;
+}
+
+/* .simple-game-link-tr {
+
+} */
+
+.simple-game-link-td {
+  text-align: center;
+  border-top: 1px solid var(--blue);
 }
 
 .create-playlist-box {
