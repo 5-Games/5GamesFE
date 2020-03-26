@@ -92,7 +92,7 @@ const SimplePlaylistGame = props => {
       onStart={() => false}
     > */}
       <div className="create-playlist-box" >
-        {props.game}
+        {`Game ${props.arrIndex + 1}`}
       </div>
     {/* </Draggable> */}
     </div>

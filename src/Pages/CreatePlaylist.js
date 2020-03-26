@@ -35,6 +35,21 @@ const CreatePlaylist = () => {
                           arrIndex={i}
                         />)
 
+  // need to make the action for creating a playlist
+  const handleCreate = () => {
+    console.log('submit')
+    // dispatch(actions.updatePlaylistGames(movePlaylistElement(action)));
+  };
+
+  // only renders the create playlist button when all 5 games have been added
+  const renderCreatePlaylistButton = createPlaylistGames.includes("Add a Game") ? (
+    null
+  ) : (
+    <>
+      <button className="submit-playlist-button" onClick={ () => handleCreate() }>Create Playlist</button>
+    </> 
+  )
+
   // conditionalContent only loads if a user is logged in
   const conditionalContent = user.username ? (
     // content when user is logged in
@@ -48,6 +63,7 @@ const CreatePlaylist = () => {
             Add 5 Games to create a playlist
           </h3>
           {createPlaylistGamesMap()}
+          {renderCreatePlaylistButton}
         </div>
         <div className='double-column'>
           {/* <h3>
