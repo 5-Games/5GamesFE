@@ -12,14 +12,13 @@ const SimpleSelectGame = props => {
 
   // Find the next open slot in createPlaylistGamesArr and add the game
   const updatePlaylistGamesArr = () => {
-    let i = createPlaylistGamesArr.findIndex(e => e === "Add a Game")
-    let arr = [...createPlaylistGamesArr]
+    const i = createPlaylistGamesArr.findIndex(e => e === "Add a Game")
+    const arr = [...createPlaylistGamesArr]
     arr.splice(i, 1, {...props.game})
     return arr
   }
 
-  const handleAddToPlaylist = e => {
-    e.preventDefault();
+  const handleAddToPlaylist = () => {
     dispatch(actions.updatePlaylistGames(updatePlaylistGamesArr()));
   };
 
@@ -27,7 +26,7 @@ const SimpleSelectGame = props => {
   const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
   const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
 
-  // Renders either a game from the game selector or an empty game object for the playlist
+  // Renders the simple game component. Draggable disable for now. Needs Game Summary link.
   const renderGame = (
       <div className="game-table-div" >
         {/* <Draggable
@@ -51,11 +50,8 @@ const SimpleSelectGame = props => {
                 </tr>
                 <tr className="simple-game-link-tr">
                   <td className="simple-game-link-td" colSpan="3">
-                  <a onClick={handleAddToPlaylist}>Add to Playlist</a> | Game Summary
+                    <button className="create-playlist-button" onClick={handleAddToPlaylist}>Add to Playlist</button> | <button className="create-playlist-button" onClick={null}>Game Summary</button>
                   </td>
-                  {/* <td>
-                    Game Summary
-                  </td> */}
                 </tr>
               </tbody>
             </table>

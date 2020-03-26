@@ -1,14 +1,58 @@
-import React, { useState, useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import userActions from '../redux/actions';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import actions from '../redux/actions';
 // import Draggable from 'react-draggable';
 
 const SimplePlaylistGame = props => {
+  // initializing dispatch
+  const dispatch = useDispatch();
+
+  // Get variables from Redux state
+  const createPlaylistGamesArr = useSelector(state => state.createPlaylistGames);
+
+  // Move the game up, down, or remove it
+  const movePlaylistElement = action => {
+    const i = props.arrIndex
+    const arr = [...createPlaylistGamesArr]
+    if (action === 'up') {
+      if (i === 0) {
+        return;
+      } else {
+        [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]]
+        return arr
+      }
+    } else if (action === 'down') {
+      if (i === 4) {
+        return;
+      } else {
+        [arr[i + 1], arr[i]] = [arr[i], arr[i + 1]]
+        return arr
+      }
+    } else {
+      arr.splice(i, 1, "Add a Game")
+      return arr
+    }
+  }
+
+  const handleMove = action => {
+    dispatch(actions.updatePlaylistGames(movePlaylistElement(action)));
+  };
+
   // visitorWinner and homeWinner are used to change the className and bold the team name of the winner
   const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
   const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
 
-  // Renders either a game from the game selector or an empty game object for the playlist
+  // only render Up button if index is greater than 0
+  const renderUpButton = (props.arrIndex > 0) ? (
+    <> <button className="create-playlist-button" onClick={ () => handleMove('up') }>Move Up</button> | </> 
+    ) : ( null )
+
+  // only render Down button if index is less than 4
+  const renderDownButton = (props.arrIndex < 4) ? (
+    <> <button className="create-playlist-button" onClick={ () => handleMove('down') }>Move Down</button> | </> 
+    ) : ( null )
+
+  // Renders either a placeholder box, or the playlist game component. Draggable commented out.
   const renderGame = (
     props.game["id"] ?
       <div className="game-table-div" >
@@ -33,11 +77,8 @@ const SimplePlaylistGame = props => {
                 </tr>
                 <tr className="simple-game-link-tr">
                   <td className="simple-game-link-td" colSpan="3">
-                    Move Up | Move Down | Remove
+                    {renderUpButton} {renderDownButton} <button className="create-playlist-button" onClick={ () => handleMove('remove') }>Remove</button>
                   </td>
-                  {/* <td>
-                    Game Summary
-                  </td> */}
                 </tr>
               </tbody>
             </table>
