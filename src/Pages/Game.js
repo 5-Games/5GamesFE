@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import PlaylistCard from '../Components/PlaylistCard'
 
 const Game = () => {
 
@@ -95,6 +95,9 @@ const Game = () => {
 
                 </div>)
 
+  // Function below not ready yet
+  // const playlists = currentGame.playlists.map(playlist => <PlaylistCard playlist={playlist}/>)
+
   return <div className="game-show-page">
             <h1>
               {currentGame}
@@ -102,7 +105,7 @@ const Game = () => {
             <div className='game-table-div'>
               {game}
             </div>
-            { noUser } 
+            { noUser }
         </div>
 };
 
