@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import userActions from '../redux/actions';
+// import { useDispatch, useSelector } from 'react-redux';
+// import userActions from '../redux/actions';
 // import Draggable from 'react-draggable';
 
-const SimpleGame = props => {
+const SimplePlaylistGame = props => {
   // visitorWinner and homeWinner are used to change the className and bold the team name of the winner
   const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
   const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
@@ -32,8 +32,8 @@ const SimpleGame = props => {
                   </td>
                 </tr>
                 <tr className="simple-game-link-tr">
-                  <td className="simple-game-link-td" colspan="3">
-                    Add to Playlist | Game Summary
+                  <td className="simple-game-link-td" colSpan="3">
+                    Move Up | Move Down | Remove
                   </td>
                   {/* <td>
                     Game Summary
@@ -64,4 +64,4 @@ const SimpleGame = props => {
   )
 }
 
-export default SimpleGame;
+export default SimplePlaylistGame;

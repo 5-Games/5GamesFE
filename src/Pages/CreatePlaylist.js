@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DateSelector from '../Components/DateSelector';
-import SimpleGame from '../Components/SimpleGame';
+import SimpleSelectGame from '../Components/SimpleSelectGame';
+import SimplePlaylistGame from '../Components/SimplePlaylistGame';
 
 
 const CreatePlaylist = () => {
@@ -20,17 +21,18 @@ const CreatePlaylist = () => {
   }, []);
 
   // dateGamesMap renders the game components by iterating over dateGames
-  const dateGamesMap = dateGames["games"].map((game, i) =>
-                        <SimpleGame 
+  const dateGamesMap = dateGames["games"].map((game) =>
+                        <SimpleSelectGame 
                           key={game["id"]} 
                           game={game}
                         />)
 
   // createPlaylistGamesMap renders the game components by iterating over dateGames
-  const createPlaylistGamesMap = createPlaylistGames.map((game, i) =>
-                        <SimpleGame 
+  const createPlaylistGamesMap = () => createPlaylistGames.map((game, i) =>
+                        <SimplePlaylistGame 
                           key={i} 
                           game={game}
+                          arrIndex={i}
                         />)
 
   // conditionalContent only loads if a user is logged in
@@ -45,7 +47,7 @@ const CreatePlaylist = () => {
           <h3>
             Add 5 Games to create a playlist
           </h3>
-          {createPlaylistGamesMap}
+          {createPlaylistGamesMap()}
         </div>
         <div className='double-column'>
           {/* <h3>
