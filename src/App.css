@@ -43,22 +43,22 @@ a:hover {
   transition-timing-function: ease;
 }
 
-input[type=text] {
-  color: var(--white);
+input {
+  color: var(--darkBlue);
   text-align: center;
-  background-color: var(--darkBlue);
+  background-color: var(--white);
   border: 1px solid transparent;
   font-weight: normal;
   font-size: 15px;
   outline: none;
 }
 
-input[type=text]:hover {
-  border: 1px solid var(--white);
+input:hover {
+  border: 1px solid var(--red);
 }
 
-input[type=text]:focus {
-  border: 1px solid var(--white);
+input:focus {
+  border: 1px solid var(--red);
 }
 
 button {
