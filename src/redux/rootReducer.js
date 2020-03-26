@@ -4,7 +4,7 @@
 // return value of the reducer beccomes the new Redux state
 
 const initialState = {
-  createPlaylistGames: [["Game 1"],["Game 2"],["Game 3"],["Game 4"],["Game 5"]],
+  createPlaylistGames: ["Add a Game","Add a Game","Add a Game","Add a Game","Add a Game"],
   currentGame: '20200308/LALLAC',
   dateGames: {
     // When NBA games resume, change the value of date to today
@@ -22,7 +22,11 @@ export default (state = initialState, { type, payload }) => {
     case 'CLEAR_USER':
       return initialState;
 
-    // dateGame reducers:
+    // createPlaylistGames reducers:
+    case 'UPDATE_PLAYLIST_GAMES':
+      return {...state, createPlaylistGames: payload};
+
+    // dateGames reducers:
     case 'SET_DATE_GAMES':
       return {...state, dateGames: {date: payload[0], games: payload[1]}};
 

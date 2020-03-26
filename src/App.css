@@ -43,22 +43,44 @@ a:hover {
   transition-timing-function: ease;
 }
 
-input[type=text] {
-  color: var(--white);
+input {
+  color: var(--darkBlue);
   text-align: center;
-  background-color: var(--darkBlue);
-  border: none;
+  background-color: var(--white);
+  border: 1px solid transparent;
   font-weight: normal;
   font-size: 15px;
   outline: none;
 }
 
-input[type=text]:hover {
-  border: 1px solid var(--white);
+input:hover {
+  border: 1px solid var(--red);
 }
 
-input[type=text]:focus {
-  border: 1px solid var(--white);
+input:focus {
+  border: 1px solid var(--red);
+}
+
+button {
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  border: none;
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+button:hover {
+  border-bottom-color: var(--black);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  box-sizing: border-box;
+  transition-delay: 0s;
+  transition-duration: 0.5s;
+  transition-property: all;
+  transition-timing-function: ease;
 }
 
 h1 {
@@ -200,6 +222,7 @@ table {
 
 .game-table-div {
   white-space: pre-wrap;
+  height: 72px;
 }
 
 .game_summary {
@@ -209,7 +232,6 @@ table {
 }
 
 .game_summary table {
-  /* border-bottom: 1px solid var(--blue); */
   width: 100%;
   padding: 4px;
   white-space: normal;
@@ -272,7 +294,6 @@ td.right, th.right {
 }
 
 .simple-game-summary {
-  /* height: 65px; */
   width: 245px;
   border: 1px solid var(--blue);
   display: inline-block;
@@ -280,7 +301,6 @@ td.right, th.right {
 }
 
 .simple-game-summary table {
-  /* border-bottom: 1px solid var(--blue); */
   width: 100%;
   padding: 4px;
   white-space: normal;
@@ -289,10 +309,6 @@ td.right, th.right {
 .simple-team-name {
   text-align: left;
 }
-
-/* .simple-game-link-tr {
-
-} */
 
 .simple-game-link-td {
   text-align: center;

@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DateSelector from '../Components/DateSelector';
-import SimpleGame from '../Components/SimpleGame';
+import SimpleSelectGame from '../Components/SimpleSelectGame';
+import SimplePlaylistGame from '../Components/SimplePlaylistGame';
 
 
 const CreatePlaylist = () => {
@@ -20,18 +21,34 @@ const CreatePlaylist = () => {
   }, []);
 
   // dateGamesMap renders the game components by iterating over dateGames
-  const dateGamesMap = dateGames["games"].map((game, i) =>
-                        <SimpleGame 
+  const dateGamesMap = dateGames["games"].map((game) =>
+                        <SimpleSelectGame 
                           key={game["id"]} 
                           game={game}
                         />)
 
   // createPlaylistGamesMap renders the game components by iterating over dateGames
-  const createPlaylistGamesMap = createPlaylistGames.map((game, i) =>
-                        <SimpleGame 
+  const createPlaylistGamesMap = () => createPlaylistGames.map((game, i) =>
+                        <SimplePlaylistGame 
                           key={i} 
                           game={game}
+                          arrIndex={i}
                         />)
+
+  // need to make the action for creating a playlist
+  const handleCreate = () => {
+    console.log('submit')
+    // dispatch(actions.updatePlaylistGames(movePlaylistElement(action)));
+  };
+
+  // only renders the create playlist button when all 5 games have been added
+  const renderCreatePlaylistButton = createPlaylistGames.includes("Add a Game") ? (
+    null
+  ) : (
+    <>
+      <button className="submit-playlist-button" onClick={ () => handleCreate() }>Create Playlist</button>
+    </> 
+  )
 
   // conditionalContent only loads if a user is logged in
   const conditionalContent = user.username ? (
@@ -45,7 +62,8 @@ const CreatePlaylist = () => {
           <h3>
             Add 5 Games to create a playlist
           </h3>
-          {createPlaylistGamesMap}
+          {createPlaylistGamesMap()}
+          {renderCreatePlaylistButton}
         </div>
         <div className='double-column'>
           {/* <h3>

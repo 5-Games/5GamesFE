@@ -1,16 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import userActions from '../redux/actions';
+import actions from '../redux/actions';
 // import Draggable from 'react-draggable';
 
-const SimpleGame = props => {
+const SimpleSelectGame = props => {
+  // initializing dispatch
+  const dispatch = useDispatch();
+
+  // Get variables from Redux state
+  const createPlaylistGamesArr = useSelector(state => state.createPlaylistGames);
+
+  // Find the next open slot in createPlaylistGamesArr and add the game
+  const updatePlaylistGamesArr = () => {
+    const i = createPlaylistGamesArr.findIndex(e => e === "Add a Game")
+    const arr = [...createPlaylistGamesArr]
+    arr.splice(i, 1, {...props.game})
+    return arr
+  }
+
+  const handleAddToPlaylist = () => {
+    dispatch(actions.updatePlaylistGames(updatePlaylistGamesArr()));
+  };
+
   // visitorWinner and homeWinner are used to change the className and bold the team name of the winner
   const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
   const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
 
-  // Renders either a game from the game selector or an empty game object for the playlist
+  // Renders the simple game component. Draggable disable for now. Needs Game Summary link.
   const renderGame = (
-    props.game["id"] ?
       <div className="game-table-div" >
         {/* <Draggable
           bounds="body"
@@ -32,29 +49,15 @@ const SimpleGame = props => {
                   </td>
                 </tr>
                 <tr className="simple-game-link-tr">
-                  <td className="simple-game-link-td" colspan="3">
-                    Add to Playlist | Game Summary
+                  <td className="simple-game-link-td" colSpan="3">
+                    <button className="create-playlist-button" onClick={handleAddToPlaylist}>Add to Playlist</button> | <button className="create-playlist-button" onClick={null}>Game Summary</button>
                   </td>
-                  {/* <td>
-                    Game Summary
-                  </td> */}
                 </tr>
               </tbody>
             </table>
           </div>
         {/* </Draggable> */}
       </div>
-    :
-    <div className="game-table-div" >
-    {/* <Draggable
-      bounds="body"
-      onStart={() => false}
-    > */}
-      <div className="create-playlist-box" >
-        {props.game}
-      </div>
-    {/* </Draggable> */}
-    </div>
   )
 
   return (
@@ -64,4 +67,4 @@ const SimpleGame = props => {
   )
 }
 
-export default SimpleGame;
+export default SimpleSelectGame;
