@@ -42,27 +42,29 @@ const LoginPage = props => {
 
   // Component code
   return (
-    <div className="row">
-      <div className='auth-box'>
-        <form onSubmit={handleSubmit}>
-          <h1>Login Page</h1>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleChange}
-            placeholder="Username"
-          />
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-          <br></br>
-          <input type="submit" />
-        </form>
+    <div className="auth-page">
+      <h1>Login Page</h1>
+      <div className="row">
+        <div className='single-column'>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={handleChange}
+              placeholder="Username"
+            />
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+            <br></br>
+            <input type="submit" />
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -30,22 +30,18 @@ const Home = () => {
           </h1>
           <div className="row">
             <div className="single-column">
-              An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
-            </div>
-          </div>
-          <div className="row">
-            <div className="single-column">
-            <Link to="/game">Temporary link to current game.</Link>
-            </div>
-          </div>
-          <div className="row">
-            <div className="single-column">
-              <Link to="/playlist/create">Temporary link to create playlist.</Link>
-            </div>
-          </div>
-          <div className="row">
-            <div className="single-column">
-              { noUser }
+              <div>
+                An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
+              </div>
+              <div>
+                <Link to="/game">Temporary link to current game.</Link>
+              </div>
+              <div>
+                <Link to="/playlist/create">Temporary link to create playlist.</Link>
+              </div>
+              <div>
+                { noUser }
+              </div>
             </div>
           </div>
         </div>

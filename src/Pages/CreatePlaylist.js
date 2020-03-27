@@ -58,7 +58,7 @@ const CreatePlaylist = () => {
         Select games by (dropdown date): <DateSelector />
       </h2>
       <div className='row'>
-        <div className='double-column'>
+        <div className='single-column'>
           <h3>
             Add 5 Games to create a playlist
           </h3>
@@ -69,7 +69,9 @@ const CreatePlaylist = () => {
           {/* <h3>
             Click or drag a game to add it to your playlist.
           </h3> */}
-          {dateGamesMap}
+          <div className="row">
+            {dateGamesMap}
+          </div>
         </div>
       </div>
     </>

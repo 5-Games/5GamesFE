@@ -189,28 +189,47 @@ table {
 }
 
 .row {
-  /* padding-top: 16px; */
-  align-items: center;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 16px;
+  justify-content: center;
 }
 
 .single-column {
-  float: middle;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  text-align: center;
 }
 
 .double-column {
-  float: left;
-  width: 50%;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
+  text-align: center;
+}
+
+.double-column-left-25 {
+  width: 25%
+}
+
+.double-column-right-75 {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
 }
 
 /* Clear floats after the columns */
-.row:after {
+/* .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -218,11 +237,18 @@ table {
     width: 100%;
     margin-bottom: 16px;
   }
+  .row {
+    width: 100%
+  }
+  .game-table-div {
+    width: 100%
+  }
 }
 
 .game-table-div {
   white-space: pre-wrap;
   height: 72px;
+  margin: 3px;
 }
 
 .game_summary {
