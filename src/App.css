@@ -67,8 +67,9 @@ select {
   background-color: var(--white);
   border: 1px solid transparent;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
+  height: 20px;
 }
 
 select:hover {
@@ -118,7 +119,7 @@ h2 {
   background-color: var(--darkBlue);
   font-weight: normal;
   font-size: 15px;
-  height: 54px;
+  min-height: 54px;
 }
 
 h3 {
