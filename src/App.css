@@ -61,6 +61,24 @@ input:focus {
   border: 1px solid var(--red);
 }
 
+select {
+  color: var(--darkBlue);
+  text-align: center;
+  background-color: var(--white);
+  border: 1px solid transparent;
+  font-weight: normal;
+  font-size: 15px;
+  outline: none;
+}
+
+select:hover {
+  border: 1px solid var(--red);
+}
+
+select:focus {
+  border: 1px solid var(--red);
+}
+
 button {
   color: black;
   text-decoration: none;
@@ -106,9 +124,8 @@ h2 {
 h3 {
   text-align: center;
   padding: 0 0 16px 0;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 15px;
-  /* height: 54px; */
 }
 
 table {
@@ -197,6 +214,14 @@ table {
   justify-content: center;
 }
 
+.sub-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
 .single-column {
   display: flex;
   flex-direction: column;
@@ -247,7 +272,7 @@ table {
 
 .game-table-div {
   white-space: pre-wrap;
-  height: 72px;
+  /* height: 72px; */
   margin: 3px;
 }
 
@@ -319,16 +344,29 @@ td.right, th.right {
   background-color: var(--darkBlue);
 }
 
+.simple-game-table-div {
+  white-space: pre-wrap;
+  width: 270px;
+  margin: 3px;
+}
+
+.simple-game-table {
+  padding-left: 15px;
+  width: 100%;
+}
+
 .simple-game-summary {
   width: 245px;
   border: 1px solid var(--blue);
   display: inline-block;
   background-color: var(--white);
+  position: relative;
 }
 
-.simple-game-summary table {
+.simple-game-summary {
   width: 100%;
   padding: 4px;
+  padding-left: 8px;
   white-space: normal;
 }
 
@@ -341,10 +379,23 @@ td.right, th.right {
   border-top: 1px solid var(--blue);
 }
 
+.simple-game-date {
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  position: absolute;
+  left: 0;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transform: rotate(180deg);
+  border-left: 1px solid var(--blue);
+  margin-top: 2px;
+}
+
 .create-playlist-box {
   padding: 24px;
-  height: 68px;
-  width: 245px;
+  height: 72px;
+  width: 270px;
   border: 1px solid var(--blue);
   display: inline-block;
   background-color: var(--white);

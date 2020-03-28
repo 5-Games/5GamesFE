@@ -52,15 +52,35 @@ const SimplePlaylistGame = props => {
     <> <button className="create-playlist-button" onClick={ () => handleMove('down') }>Move Down</button> | </> 
     ) : ( null )
 
+  // formatDate takes JS Date object and returns in format: YYYY-MM-DD
+  const formatDate = (date) => {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + (d.getDate() + 1),
+        year = d.getYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+    if (year > 100)
+        year -= 100
+
+    return [month, day, year].join('/').toString();
+  }
+
   // Renders either a placeholder box, or the playlist game component. Draggable commented out.
   const renderGame = (
     props.game["id"] ?
-      <div className="game-table-div" >
+      <div className="simple-game-table-div" >
         {/* <Draggable
           bounds="body"
         > */}
           <div className="simple-game-summary">
-            <table>
+            <div className='simple-game-date'> 
+              {formatDate(props.game.date)}
+            </div>
+            <table className='simple-game-table'>
               <tbody>     
                 <tr className={visitorWinner}>
                   <td className="simple-team-name">{props.game['visitor_team']['full_name']}</td>
@@ -86,7 +106,7 @@ const SimplePlaylistGame = props => {
         {/* </Draggable> */}
       </div>
     :
-    <div className="game-table-div" >
+    <div className="simple-game-table-div" >
     {/* <Draggable
       bounds="body"
       onStart={() => false}
