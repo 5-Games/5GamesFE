@@ -27,7 +27,8 @@ const LoginPage = props => {
           alert(data.errors);
           return;
       } else {
-        dispatch(userActions.setUserAction(data.user));
+        debugger
+        dispatch(userActions.setUserAction(data));
         localStorage.setItem('token', data.token);
         props.history.push('/');
       }
