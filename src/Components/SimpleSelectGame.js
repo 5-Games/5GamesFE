@@ -26,7 +26,7 @@ const SimpleSelectGame = props => {
   const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
   const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
 
-    // formatDate takes JS Date object and returns in format: YYYY-MM-DD
+    // formatDate takes JS Date object and returns in format: MM-DD-YY
     const formatDate = (date) => {
       var d = new Date(date),
           month = '' + (d.getMonth() + 1),
@@ -39,6 +39,8 @@ const SimpleSelectGame = props => {
           day = '0' + day;
       if (year > 100)
           year -= 100
+      if (year === 100)
+        year = "00"
   
       return [month, day, year].join('/').toString();
     }
