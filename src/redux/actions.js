@@ -93,7 +93,10 @@
       fetch(PERSIST_URL, config)
         .then(r => r.json())
         .then(data => {
-          dispatch(setUserAction(data.user));
+          let starred_games = data.user_starred_games
+          let playlists = data.playlists
+          let starred_playlists = data.starred_playlists
+          dispatch(setUserAction({...data.user, starred_games, playlists, starred_playlists}));
         });
     };
 

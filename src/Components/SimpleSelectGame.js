@@ -26,23 +26,10 @@ const SimpleSelectGame = props => {
   const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
   const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
 
-    // formatDate takes JS Date object and returns in format: MM-DD-YY
+    // formatDate takes the BDL date and returns in format: MM-DD-YY
     const formatDate = (date) => {
-      var d = new Date(date),
-          month = '' + (d.getMonth() + 1),
-          day = '' + (d.getDate() + 1),
-          year = d.getYear();
-  
-      if (month.length < 2) 
-          month = '0' + month;
-      if (day.length < 2) 
-          day = '0' + day;
-      if (year > 100)
-          year -= 100
-      if (year === 100)
-        year = "00"
-  
-      return [month, day, year].join('/').toString();
+      let d = date.slice(0, 10).split('-');   
+      return d[1] +'/'+ d[2] +'/'+ d[0].slice(2, 4);
     }
 
   // Renders the simple game component. Draggable disable for now. Needs Game Summary link.
