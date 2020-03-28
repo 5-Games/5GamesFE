@@ -11,7 +11,11 @@ const initialState = {
     date: new Date('March 11, 2020 12:00:00'),
     games: []
   },
-  user: {},
+  user: {
+    starred_games: [],
+    playlists: [],
+    starred_playlists: []
+  },
 }
 
 export default (state = initialState, { type, payload }) => {

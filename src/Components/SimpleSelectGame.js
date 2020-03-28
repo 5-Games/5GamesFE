@@ -26,33 +26,42 @@ const SimpleSelectGame = props => {
   const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
   const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
 
+    // formatDate takes the BDL date and returns in format: MM-DD-YY
+    const formatDate = (date) => {
+      let d = date.slice(0, 10).split('-');   
+      return d[1] +'/'+ d[2] +'/'+ d[0].slice(2, 4);
+    }
+
   // Renders the simple game component. Draggable disable for now. Needs Game Summary link.
   const renderGame = (
-      <div className="game-table-div" >
+      <div className="simple-game-table-div" >
         {/* <Draggable
           bounds="body"
         > */}
           <div className="simple-game-summary">
-            <table>
-              <tbody>     
-                <tr className={visitorWinner}>
-                  <td className="simple-team-name">{props.game['visitor_team']['full_name']}</td>
-                  <td className="right">{props.game['visitor_team_score']}</td>
-                  <td className="right game-summary-final">
-                    Final
-                  </td>
-                </tr>
-                <tr className={homeWinner}>
-                  <td className="simple-team-name">{props.game['home_team']['full_name']}</td>
-                  <td className="right">{props.game['home_team_score']}</td>
-                  <td className="right">&nbsp;
-                  </td>
-                </tr>
-                <tr className="simple-game-link-tr">
-                  <td className="simple-game-link-td" colSpan="3">
-                    <button className="create-playlist-button" onClick={handleAddToPlaylist}>Add to Playlist</button> | <button className="create-playlist-button" onClick={null}>Game Summary</button>
-                  </td>
-                </tr>
+            <div className='simple-game-date'> 
+              {formatDate(props.game.date)}
+            </div>
+            <table className='simple-game-table'>
+              <tbody> 
+                  <tr className={visitorWinner}>
+                    <td className="simple-team-name">{props.game['visitor_team']['full_name']}</td>
+                    <td className="right">{props.game['visitor_team_score']}</td>
+                    <td className="right game-summary-final">
+                      Final
+                    </td>
+                  </tr>
+                  <tr className={homeWinner}>
+                    <td className="simple-team-name">{props.game['home_team']['full_name']}</td>
+                    <td className="right">{props.game['home_team_score']}</td>
+                    <td className="right">&nbsp;
+                    </td>
+                  </tr>
+                  <tr className="simple-game-link-tr">
+                    <td className="simple-game-link-td" colSpan="3">
+                      <button className="create-playlist-button" onClick={handleAddToPlaylist}>Add to Playlist</button> | <button className="create-playlist-button" onClick={null}>Game Summary</button>
+                    </td>
+                  </tr>
               </tbody>
             </table>
           </div>

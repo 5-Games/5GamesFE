@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import userActions from '../redux/actions.js';
+import actions from '../redux/actions.js';
 
 const Signup = props => {
   // initializing dispatch
@@ -23,26 +23,20 @@ const Signup = props => {
   const handleChange = e =>
     setSignupForm({ ...signupForm, [e.target.name]: e.target.value });
 
-  // Pattern without error handling:
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   const { history } = props;
-  //   dispatch(userActions.newUserToDB(signupForm));
-  //   history.push('/');
-  // };
-
   // Pattern with error handling:
   const handleSubmit = e => {
     e.preventDefault();
     const { history } = props;
-    userActions.newUserToDB(signupForm)
+    actions.newUserToDB(signupForm)
     .then(data => {
         if(data.errors) {
           alert(data.errors);
           return;
         } else {
-        // console.log(data)
-        dispatch(userActions.setUserAction(data.user));
+        let starred_games = data.user_starred_games
+        let playlists = data.playlists
+        let starred_playlists = data.starred_playlists
+        dispatch(actions.setUserAction({...data.user, starred_games, playlists, starred_playlists}));
         localStorage.setItem('token', data.token);
         history.push('/');
     }

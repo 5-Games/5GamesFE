@@ -52,15 +52,24 @@ const SimplePlaylistGame = props => {
     <> <button className="create-playlist-button" onClick={ () => handleMove('down') }>Move Down</button> | </> 
     ) : ( null )
 
+  // formatDate takes the BDL date and returns in format: MM-DD-YY
+  const formatDate = (date) => {
+    let d = date.slice(0, 10).split('-');   
+    return d[1] +'/'+ d[2] +'/'+ d[0].slice(2, 4);
+  }
+
   // Renders either a placeholder box, or the playlist game component. Draggable commented out.
   const renderGame = (
     props.game["id"] ?
-      <div className="game-table-div" >
+      <div className="simple-game-table-div" >
         {/* <Draggable
           bounds="body"
         > */}
           <div className="simple-game-summary">
-            <table>
+            <div className='simple-game-date'> 
+              {formatDate(props.game.date)}
+            </div>
+            <table className='simple-game-table'>
               <tbody>     
                 <tr className={visitorWinner}>
                   <td className="simple-team-name">{props.game['visitor_team']['full_name']}</td>
@@ -86,7 +95,7 @@ const SimplePlaylistGame = props => {
         {/* </Draggable> */}
       </div>
     :
-    <div className="game-table-div" >
+    <div className="simple-game-table-div" >
     {/* <Draggable
       bounds="body"
       onStart={() => false}

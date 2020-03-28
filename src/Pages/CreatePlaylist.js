@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DateSelector from '../Components/DateSelector';
@@ -12,6 +12,18 @@ const CreatePlaylist = () => {
   const user = useSelector(state => state.user);
   const dateGames = useSelector(state => state.dateGames);
   const createPlaylistGames = useSelector(state => state.createPlaylistGames);
+
+  // Setting up local state using the useState hook
+  const [selectForm, setSelectForm] = useState({
+    value: 'date'
+  });
+
+  // Controlled form functions
+  const handleChange = e =>
+    setSelectForm({ value: e.target.value });
+
+  // Destructuring keys from our local state to use in the form
+  const { value } = selectForm;
 
   // Setting the document title using Hooks.
   // Could use react-document-title instead:
@@ -45,9 +57,9 @@ const CreatePlaylist = () => {
   const renderCreatePlaylistButton = createPlaylistGames.includes("Add a Game") ? (
     null
   ) : (
-    <>
+    <div>
       <button className="submit-playlist-button" onClick={ () => handleCreate() }>Create Playlist</button>
-    </> 
+    </div> 
   )
 
   // conditionalContent only loads if a user is logged in
@@ -55,21 +67,31 @@ const CreatePlaylist = () => {
     // content when user is logged in
     <>
       <h2>
-        Select games by (dropdown date): <DateSelector />
+        Select Games by &nbsp;
+        <select value={value} onChange={handleChange}>
+          <option value="date">Date</option>
+          <option value="starred games">Starred Games</option>
+          <option value="team/year">Team/Year</option>
+        </select> 
+        &nbsp; {value === "date" ? <DateSelector /> : null}
       </h2>
       <div className='row'>
         <div className='single-column'>
           <h3>
-            Add 5 Games to create a playlist
+            Add 5 Games:
           </h3>
-          {createPlaylistGamesMap()}
-          {renderCreatePlaylistButton}
+          <div className="sub-row"> 
+            {createPlaylistGamesMap()}
+          </div>
+          <h3>
+            {renderCreatePlaylistButton}
+          </h3>
         </div>
         <div className='double-column'>
-          {/* <h3>
-            Click or drag a game to add it to your playlist.
-          </h3> */}
-          <div className="row">
+          <h3>
+            Select Games:
+          </h3>
+          <div className="sub-row">
             {dateGamesMap}
           </div>
         </div>

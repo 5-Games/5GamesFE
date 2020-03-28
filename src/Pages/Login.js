@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import userActions from '../redux/actions';
+import actions from '../redux/actions';
 
 const LoginPage = props => {
   // initializing dispatch
@@ -21,14 +21,16 @@ const LoginPage = props => {
   // Login a user (with error handling):
   const handleSubmit = e => {
     e.preventDefault();
-    userActions.loginUserToDB(loginForm)
+    actions.loginUserToDB(loginForm)
     .then(data => {
       if(!data.user) {
           alert(data.errors);
           return;
       } else {
-        debugger
-        dispatch(userActions.setUserAction(data));
+        let starred_games = data.user_starred_games
+        let playlists = data.playlists
+        let starred_playlists = data.starred_playlists
+        dispatch(actions.setUserAction({...data.user, starred_games, playlists, starred_playlists}));
         localStorage.setItem('token', data.token);
         props.history.push('/');
       }
