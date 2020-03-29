@@ -35,10 +35,10 @@
       }
     };
 
-  // dateGames Actions
-    const setDateGamesAction = gamesObj => {
+  // selectGames Actions
+    const setSelectGamesByDateAction = gamesObj => {
       return {
-        type: 'SET_DATE_GAMES',
+        type: 'SET_SELECT_GAMES_BY_DATE',
         payload: gamesObj
       }
     };
@@ -107,11 +107,11 @@
 
   // BDL Fetches
     // get all games from [start_date, end_date]
-    const getDateGames = date => dispatch => {
+    const getSelectGamesByDate = date => dispatch => {
       fetch(BDL_GAME_DATES_URL(date))
         .then(r => r.json())
         .then(data => {
-          dispatch(setDateGamesAction([date, data['data']]));
+          dispatch(setSelectGamesByDateAction([date, data['data']]));
         });
     };
 
@@ -122,6 +122,6 @@ export default {
   persistUser,
   logoutUser,
   setUserAction,
-  getDateGames,
+  getSelectGamesByDate,
   updatePlaylistGames
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DateSelector from '../Components/DateSelector';
+import TeamSelector from '../Components/TeamSelector';
 import SimpleSelectGame from '../Components/SimpleSelectGame';
 import SimplePlaylistGame from '../Components/SimplePlaylistGame';
 
@@ -10,7 +11,7 @@ const CreatePlaylist = () => {
 
   // Get variables from Redux state
   const user = useSelector(state => state.user);
-  const dateGames = useSelector(state => state.dateGames);
+  const selectGames = useSelector(state => state.selectGames);
   const createPlaylistGames = useSelector(state => state.createPlaylistGames);
 
   // Setting up local state using the useState hook
@@ -32,14 +33,27 @@ const CreatePlaylist = () => {
     document.title = `Create | 5 Games`
   }, []);
 
-  // dateGamesMap renders the game components by iterating over dateGames
-  const dateGamesMap = dateGames["games"].map((game) =>
+  const selectMethod = value => {
+    switch(value) {
+      case "date":
+        return <DateSelector />
+      case "starred games":
+        return "starred games"
+      case "team/year":
+        return <TeamSelector />
+      default:
+        return <DateSelector />
+    }
+  }
+
+  // selectGamesMap renders the game components by iterating over selectGames
+  const selectGamesMap = selectGames["games"].map((game) =>
                         <SimpleSelectGame 
                           key={game["id"]} 
                           game={game}
                         />)
 
-  // createPlaylistGamesMap renders the game components by iterating over dateGames
+  // createPlaylistGamesMap renders the game components by iterating over selectGames
   const createPlaylistGamesMap = () => createPlaylistGames.map((game, i) =>
                         <SimplePlaylistGame 
                           key={i} 
@@ -73,7 +87,7 @@ const CreatePlaylist = () => {
           <option value="starred games">Starred Games</option>
           <option value="team/year">Team/Year</option>
         </select> 
-        &nbsp; {value === "date" ? <DateSelector /> : null}
+        &nbsp; {selectMethod(value)}
       </h2>
       <div className='row'>
         <div className='single-column'>
@@ -92,7 +106,7 @@ const CreatePlaylist = () => {
             Select Games:
           </h3>
           <div className="sub-row">
-            {dateGamesMap}
+            {selectGamesMap}
           </div>
         </div>
       </div>

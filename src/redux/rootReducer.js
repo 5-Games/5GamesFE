@@ -6,9 +6,11 @@
 const initialState = {
   createPlaylistGames: ["Add a Game","Add a Game","Add a Game","Add a Game","Add a Game"],
   currentGame: '20200308/LALLAC',
-  dateGames: {
+  selectGames: {
     // When NBA games resume, change the value of date to today
-    date: new Date('March 11, 2020 12:00:00'),
+    date: new Date('March 11, 2020 00:00:00'),
+    team: 'ATL',
+    year: 2020,
     games: []
   },
   user: {
@@ -30,9 +32,14 @@ export default (state = initialState, { type, payload }) => {
     case 'UPDATE_PLAYLIST_GAMES':
       return {...state, createPlaylistGames: payload};
 
-    // dateGames reducers:
-    case 'SET_DATE_GAMES':
-      return {...state, dateGames: {date: payload[0], games: payload[1]}};
+    // selectGames reducers:
+    case 'SET_SELECT_GAMES_BY_DATE':
+      return {...state, 
+                selectGames: {
+                  ...state.selectGames, 
+                  date: new Date(`${payload[0]} 00:00:00`), 
+                  games: payload[1]
+                }};
 
     default:
       return state;
