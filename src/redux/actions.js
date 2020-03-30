@@ -11,7 +11,8 @@
   // Ball Dont Lie Constants
   const BDL_API_URL = 'https://www.balldontlie.io/api/v1'
   const BDL_GAMES_URL = BDL_API_URL + '/games'
-  const BDL_GAME_DATES_URL = date => BDL_GAMES_URL + '?start_date=' + date + '&end_date=' + date;
+  const BDL_GAMES_BY_DATE_URL = date => BDL_GAMES_URL + '?start_date=' + date + '&end_date=' + date;
+  const BDL_GAMES_BY_TEAM_URL = (teamID, year) => BDL_GAMES_URL + '?seasons[]=' + year + '&team_ids[]=' + teamID + '&per_page=100'
 
 // Redux Actions
 
@@ -36,12 +37,39 @@
     };
 
   // selectGames Actions
-    const setSelectGamesByDateAction = gamesObj => {
+    const setSelectGamesAction = gamesArr => {
       return {
-        type: 'SET_SELECT_GAMES_BY_DATE',
-        payload: gamesObj
+        type: 'SET_SELECT_GAMES',
+        payload: gamesArr
       }
     };
+    const setSelectGamesDateAction = date => {
+      return {
+        type: 'SET_SELECT_GAMES_DATE',
+        payload: date
+      }
+    };
+    const setSelectGamesMethodAction = method => {
+      return {
+        type: 'SET_SELECT_GAMES_METHOD',
+        payload: method
+      }
+    };
+    const setSelectGamesTeamAction = team => {
+      return {
+        type: 'SET_SELECT_GAMES_TEAM',
+        payload: team
+      }
+    };
+    const setSelectGamesYearAction = year => {
+      return {
+        type: 'SET_SELECT_GAMES_YEAR',
+        payload: year
+      }
+    };
+    const setSelectGamesByStarredAction = () => ({
+        type: 'SET_SELECT_GAMES_BY_STARRED'
+    });
 
 // Fetch
 
@@ -108,10 +136,19 @@
   // BDL Fetches
     // get all games from [start_date, end_date]
     const getSelectGamesByDate = date => dispatch => {
-      fetch(BDL_GAME_DATES_URL(date))
+      fetch(BDL_GAMES_BY_DATE_URL(date))
         .then(r => r.json())
         .then(data => {
-          dispatch(setSelectGamesByDateAction([date, data['data']]));
+          dispatch(setSelectGamesDateAction(date));
+          dispatch(setSelectGamesAction(data['data']));
+        });
+    };
+    // get all games for a team and season
+    const getSelectGamesByTeam = (teamID, year) => dispatch => {
+      fetch(BDL_GAMES_BY_TEAM_URL(teamID, year))
+        .then(r => r.json())
+        .then(data => {
+          dispatch(setSelectGamesAction(data['data'].sort((a, b) => a.date.slice(0, 10).split('-').join('') - b.date.slice(0, 10).split('-').join(''))));
         });
     };
 
@@ -123,5 +160,10 @@ export default {
   logoutUser,
   setUserAction,
   getSelectGamesByDate,
-  updatePlaylistGames
+  updatePlaylistGames,
+  setSelectGamesMethodAction,
+  setSelectGamesByStarredAction,
+  setSelectGamesTeamAction,
+  setSelectGamesYearAction,
+  getSelectGamesByTeam
 };

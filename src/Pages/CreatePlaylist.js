@@ -1,30 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import DateSelector from '../Components/DateSelector';
-import TeamSelector from '../Components/TeamSelector';
-import SimpleSelectGame from '../Components/SimpleSelectGame';
+import actions from '../redux/actions';
+import SelectMethod from '../Containers/SelectMethod';
+import SelectGames from '../Containers/SelectGames';
 import SimplePlaylistGame from '../Components/SimplePlaylistGame';
 
 
 const CreatePlaylist = () => {
+  // initializing dispatch
+  const dispatch = useDispatch();
 
   // Get variables from Redux state
   const user = useSelector(state => state.user);
-  const selectGames = useSelector(state => state.selectGames);
+  const method = useSelector(state => state.selectGames["method"]);
   const createPlaylistGames = useSelector(state => state.createPlaylistGames);
-
-  // Setting up local state using the useState hook
-  const [selectForm, setSelectForm] = useState({
-    value: 'date'
-  });
 
   // Controlled form functions
   const handleChange = e =>
-    setSelectForm({ value: e.target.value });
-
-  // Destructuring keys from our local state to use in the form
-  const { value } = selectForm;
+    dispatch(actions.setSelectGamesMethodAction(e.target.value));
 
   // Setting the document title using Hooks.
   // Could use react-document-title instead:
@@ -32,26 +26,6 @@ const CreatePlaylist = () => {
   useEffect(() => {
     document.title = `Create | 5 Games`
   }, []);
-
-  const selectMethod = value => {
-    switch(value) {
-      case "date":
-        return <DateSelector />
-      case "starred games":
-        return "starred games"
-      case "team/year":
-        return <TeamSelector />
-      default:
-        return <DateSelector />
-    }
-  }
-
-  // selectGamesMap renders the game components by iterating over selectGames
-  const selectGamesMap = selectGames["games"].map((game) =>
-                        <SimpleSelectGame 
-                          key={game["id"]} 
-                          game={game}
-                        />)
 
   // createPlaylistGamesMap renders the game components by iterating over selectGames
   const createPlaylistGamesMap = () => createPlaylistGames.map((game, i) =>
@@ -82,12 +56,12 @@ const CreatePlaylist = () => {
     <>
       <h2>
         Select Games by &nbsp;
-        <select value={value} onChange={handleChange}>
+        <select value={method} onChange={handleChange}>
           <option value="date">Date</option>
           <option value="starred games">Starred Games</option>
           <option value="team/year">Team/Year</option>
         </select> 
-        &nbsp; {selectMethod(value)}
+        &nbsp; <SelectMethod />
       </h2>
       <div className='row'>
         <div className='single-column'>
@@ -106,7 +80,7 @@ const CreatePlaylist = () => {
             Select Games:
           </h3>
           <div className="sub-row">
-            {selectGamesMap}
+            <SelectGames />
           </div>
         </div>
       </div>

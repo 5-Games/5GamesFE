@@ -49,7 +49,6 @@ const DateSelector = () => {
         return lastGame > date;
       }}
       onChange={date => {
-        // setStartDate(date)
         dispatch(actions.getSelectGamesByDate(formatDate(date)))
       }}
     />

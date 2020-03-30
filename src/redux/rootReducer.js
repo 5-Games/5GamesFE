@@ -9,9 +9,10 @@ const initialState = {
   selectGames: {
     // When NBA games resume, change the value of date to today
     date: new Date('March 11, 2020 00:00:00'),
-    team: 'ATL',
-    year: 2020,
-    games: []
+    games: [],
+    method: 'date',
+    team: '1',
+    year: '2019'
   },
   user: {
     starred_games: [],
@@ -33,13 +34,43 @@ export default (state = initialState, { type, payload }) => {
       return {...state, createPlaylistGames: payload};
 
     // selectGames reducers:
-    case 'SET_SELECT_GAMES_BY_DATE':
+    case 'SET_SELECT_GAMES_METHOD':
       return {...state, 
                 selectGames: {
                   ...state.selectGames, 
-                  date: new Date(`${payload[0]} 00:00:00`), 
-                  games: payload[1]
-                }};
+                  method: payload
+                }
+              };
+    case 'SET_SELECT_GAMES':
+      return {...state, 
+                selectGames: {
+                  ...state.selectGames, 
+                  games: payload
+                }
+              };
+    case 'SET_SELECT_GAMES_DATE':
+      return {...state, 
+                selectGames: {
+                  ...state.selectGames, 
+                  date: new Date(`${payload} 00:00:00`)
+                }
+              };
+    case 'SET_SELECT_GAMES_TEAM':
+      return {...state, 
+                selectGames: {
+                  ...state.selectGames, 
+                  team: payload
+                }
+              };
+    case 'SET_SELECT_GAMES_YEAR':
+      return {...state, 
+                selectGames: {
+                  ...state.selectGames, 
+                  year: payload
+                }
+              };
+    case 'SET_SELECT_GAMES_BY_STARRED':
+      return { ...state, selectGames: { ...state.selectGames, games: [...state.user.starred_games] } }
 
     default:
       return state;

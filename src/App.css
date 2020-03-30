@@ -347,7 +347,7 @@ td.right, th.right {
 
 .simple-game-table-div {
   white-space: pre-wrap;
-  width: 270px;
+  width: 265px;
   margin: 3px;
 }
 
@@ -396,7 +396,7 @@ td.right, th.right {
 .create-playlist-box {
   padding: 24px;
   height: 72px;
-  width: 270px;
+  width: 265px;
   border: 1px solid var(--blue);
   display: inline-block;
   background-color: var(--white);
