@@ -375,6 +375,10 @@ td.right, th.right {
   text-align: left;
 }
 
+img {
+  height: 14px;
+}
+
 .simple-game-link-td {
   text-align: center;
   border-top: 1px solid var(--blue);
