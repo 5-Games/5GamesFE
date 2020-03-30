@@ -43,7 +43,7 @@ const CreatePlaylist = () => {
 
   // only renders the create playlist button when all 5 games have been added
   const renderCreatePlaylistButton = createPlaylistGames.includes("Add a Game") ? (
-    null
+    'Add 5 Games'
   ) : (
     <div>
       <button className="submit-playlist-button" onClick={ () => handleCreate() }>Create Playlist</button>
@@ -66,7 +66,7 @@ const CreatePlaylist = () => {
       <div className='row'>
         <div className='single-column'>
           <h3>
-            Add 5 Games:
+            {renderCreatePlaylistButton}
           </h3>
           <div className="sub-row"> 
             {createPlaylistGamesMap()}
