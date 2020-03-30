@@ -131,9 +131,9 @@ h3 {
 
 table {
   display: table;
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 2px;
-  border-color: grey;
+  border-color: var(--blue);
   font-size: 14px;
 }
 
@@ -352,7 +352,7 @@ td.right, th.right {
 }
 
 .simple-game-table {
-  padding-left: 15px;
+  padding-left: 20px;
   width: 100%;
 }
 
@@ -367,7 +367,7 @@ td.right, th.right {
 .simple-game-summary {
   width: 100%;
   padding: 4px;
-  padding-left: 8px;
+  padding-left: 20px;
   white-space: normal;
 }
 
@@ -375,8 +375,17 @@ td.right, th.right {
   text-align: left;
 }
 
-img {
-  height: 14px;
+.simple-game-logo-div {
+  height: 15px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.simple-game-logo {
+  height: 18px;
+  margin: 0;
+  padding: 0;
 }
 
 .simple-game-link-td {
@@ -394,7 +403,7 @@ img {
   letter-spacing: 1px;
   transform: rotate(180deg);
   border-left: 1px solid var(--blue);
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .create-playlist-box {
