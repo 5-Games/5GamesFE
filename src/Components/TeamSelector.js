@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../redux/actions.js';
 import teamsArr from '../Data/teams.json'
@@ -12,41 +12,10 @@ const TeamSelector = () => {
   const team = useSelector(state => state.selectGames['team']);
   const year = useSelector(state => state.selectGames['year']);
 
-  // On loading component, get fetch games immediately. Comment after function disables the warning.
-  // useEffect(() => {
-  //   dispatch(actions.getSelectGamesByDate(formatDate(dateFromState)))
-  // }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
-  // const teamsArr = [{label: 'Atlanta Hawks', value: 'ATL'},
-  //   {label: 'Boston Celtics', value: 'BOS'},
-  //   {label: 'Chicago Bulls', value: 'CHI'},
-  //   {label: 'Cleveland Cavaliers', value: 'CLE'},
-  //   {label: 'Charlotte Hornets', value: 'CHA'},
-  //   {label: 'Dallas Mavericks', value: 'DAL'},
-  //   {label: 'Denver Nuggets', value: 'DEN'},
-  //   {label: 'Detroit Pistons', value: 'DET'},
-  //   {label: 'Golden State Warriors', value: 'GSW'},
-  //   {label: 'Houston Rockets', value: 'HOU'},
-  //   {label: 'Los Angeles Clippers', value: 'LAC'},
-  //   {label: 'Indiana Pacers', value: 'IND'},
-  //   {label: 'Los Angeles Lakers', value: 'LAL'},
-  //   {label: 'Minnesota Timberwolves', value: 'MIN'},
-  //   {label: 'Memphis Grizzlies', value: 'MEM'},
-  //   {label: 'Miami Heat', value: 'MIA'},
-  //   {label: 'Milwaukee Bucks', value: 'MIL'},
-  //   {label: 'New York Knicks', value: 'NYK'},
-  //   {label: 'Orlando Magic', value: 'ORL'},
-  //   {label: 'New Orleans Pelicans', value: 'NOP'},
-  //   {label: 'Oklahoma City Thunder', value: 'OKC'},
-  //   {label: 'Philadelphia 76ers', value: 'PHI'},
-  //   {label: 'Portland Trail Blazers', value: 'POR'},
-  //   {label: 'Sacramento Kings', value: 'SAC'},
-  //   {label: 'Toronto Raptors', value: 'TOR'},
-  //   {label: 'Brooklyn Nets', value: 'BKN'},
-  //   {label: 'San Antonio Spurs', value: 'SAS'},
-  //   {label: 'Utah Jazz', value: 'UTA'},
-  //   {label: 'Phoenix Suns', value: 'PHX'},
-  //   {label: 'Washington Wizards', value: 'WSH'}]
+  // On loading component, fetch games immediately. Comment after function disables the error message.
+  useEffect(() => {
+    dispatch(actions.getSelectGamesByTeam(team, year))
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const teamOptions = teamsArr.map((team, i) =>
     <option key={i} value={team['id']} label={team['full_name']}/>)
@@ -105,7 +74,7 @@ const TeamSelector = () => {
         <option value="1981">1981-1982</option>
         <option value="1980">1980-1981</option>
         <option value="1979">1979-1980</option>
-        <option value="1978">1978-1979</option>
+        {/* <option value="1978">1978-1979</option>
         <option value="1977">1977-1978</option>
         <option value="1976">1976-1977</option>
         <option value="1975">1975-1976</option>
@@ -134,7 +103,7 @@ const TeamSelector = () => {
         <option value="1952">1952-1953</option>
         <option value="1951">1951-1952</option>
         <option value="1950">1950-1951</option>
-        <option value="1949">1949-1950</option>
+        <option value="1949">1949-1950</option> */}
       </select> 
     </>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import actions from '../redux/actions';
+import { useSelector } from 'react-redux';
 import DateSelector from '../Components/DateSelector';
 import TeamSelector from '../Components/TeamSelector';
 import StarredSelector from '../Components/StarredSelector';

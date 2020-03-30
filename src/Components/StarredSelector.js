@@ -11,7 +11,7 @@ const StarredSelector = () => {
   // On loading component, set selectGames to user's starred games.
   useEffect(() => {
     dispatch(actions.setSelectGamesByStarredAction())
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
   return (

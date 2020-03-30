@@ -72,12 +72,12 @@ const SimplePlaylistGame = props => {
             <table className='simple-game-table'>
               <tbody>     
                 <tr className={visitorWinner}>
-                  <td className="simple-game-logo-div"><img className='simple-game-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['visitor_team']['abbreviation']}.svg`}></img> </td>
+                  <td className="simple-game-logo-div"><img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['visitor_team']['abbreviation']}.svg`}></img> </td>
                   <td className="simple-team-name">{props.game['visitor_team']['full_name']}</td>
                   <td className="right">{props.game['visitor_team_score']}</td>
                 </tr>
                 <tr className={homeWinner}>
-                  <td className="simple-game-logo-div"><img className='simple-game-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['home_team']['abbreviation']}.svg`}></img> </td>
+                  <td className="simple-game-logo-div"><img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['home_team']['abbreviation']}.svg`}></img> </td>
                   <td className="simple-team-name">{props.game['home_team']['full_name']}</td>
                   <td className="right">{props.game['home_team_score']}</td>
                   <td className="right">&nbsp;
