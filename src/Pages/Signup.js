@@ -20,8 +20,10 @@ const Signup = props => {
   }, []);
 
   // Controlled form functions
-  const handleChange = e =>
+  const handleChange = e => {
     setSignupForm({ ...signupForm, [e.target.name]: e.target.value });
+    return e.target.value.length > 0 ? (e.target.style.backgroundColor = 'white') : (e.target.style.backgroundColor = '#CECCCC')
+  }
 
   // Pattern with error handling:
   const handleSubmit = e => {

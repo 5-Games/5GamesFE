@@ -45,16 +45,29 @@
     const continuePlaylistAction = () => ({
       type: 'CONTINUE_PLAYLIST'
     });
-    const updateTitleDescription = (payload, target) => {
+    const updateTitleDescription = (value, target) => {
       if (target === 'title') {
         return {
           type: 'UPDATE_EDIT_TITLE',
-          payload: payload
+          payload: value
         }
       } else if (target === 'description') {
         return {
           type: 'UPDATE_EDIT_DESCRIPTION',
-          payload: payload
+          payload: value
+        }
+      }
+    };
+    const updatePlaylistGameRatingDescription = (value, target, index) => {
+      if (target === 'rating') {
+        return {
+          type: 'UPDATE_PLAYLISTGAME_RATING',
+          payload: [value, index]
+        }
+      } else if (target === 'description') {
+        return {
+          type: 'UPDATE_PLAYLISTGAME_DESCRIPTION',
+          payload: [value, index]
         }
       }
     };
@@ -190,5 +203,6 @@ export default {
   setSelectGamesYearAction,
   getSelectGamesByTeam,
   continuePlaylistAction,
-  updateTitleDescription
+  updateTitleDescription,
+  updatePlaylistGameRatingDescription
 };

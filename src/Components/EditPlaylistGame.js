@@ -1,53 +1,51 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../redux/actions';
+import { Link } from 'react-router-dom';
 
-const EditPlaylistGame = props => {
+const EditPlaylistGame = ({ arrIndex, game }) => {
   // initializing dispatch
   const dispatch = useDispatch();
 
-  console.log(props)
+
+  // On loading component, give each game a rating and description. Need to fix this so they are initialized with them instead.
+  useEffect(() => {
+    dispatch(actions.updatePlaylistGameRatingDescription('', 'rating', arrIndex));
+    dispatch(actions.updatePlaylistGameRatingDescription('', 'description', arrIndex));
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Get variables from Redux state
-  const editGamesArr = (useSelector(state => state.editPlaylistObj.games))
+  const editPlaylistGameRating = useSelector(state => state.editPlaylistObj.games[arrIndex].rating);
+  const editPlaylistGameDescription = useSelector(state => state.editPlaylistObj.games[arrIndex].description);
 
-  const handleMove = action => {
-    // dispatch(actions.updateGamesArr(movePlaylistElement(action), page));
+  const handleChange = (e, type) => {
+    dispatch(actions.updatePlaylistGameRatingDescription(e.target.value, type, arrIndex));
+    return e.target.value.length > 0 ? (e.target.style.backgroundColor = 'white') : (e.target.style.backgroundColor = '#CECCCC')
   };
 
-  // visitorWinner and homeWinner are used to change the className and bold the team name of the winner
-  const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
-  const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
-
-  // formatDate takes the BDL date and returns in format: MM-DD-YY
-  const formatDate = (date) => {
-    let d = date.slice(0, 10).split('-');   
-    return d[1] +'/'+ d[2] +'/'+ d[0].slice(2, 4);
-  }
-
-  // Renders either a placeholder box, or the playlist game component. Draggable commented out.
+  // Renders the editable playlistGame
   const renderGame = (
     <div className="simple-game-table-div edit-page-div" >
         <div className="simple-game-summary">
           <div className='simple-game-date'> 
-            {`Game ${props.arrIndex + 1}`}
+            {`Game ${arrIndex + 1}`}
           </div>
           <table className='simple-game-table'>
-            <tbody>     
-              <tr className={visitorWinner}>
-                <td className="simple-game-logo-div"><img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['visitor_team']['abbreviation']}.svg`}></img> </td>
-                <td className="simple-team-name">{props.game['visitor_team']['full_name']}</td>
-                <td className="right">{props.game['visitor_team_score']}</td>
+            <tbody>
+              <tr>
+                <td className="input-title-td"> Rating: </td>
+                <td className="expanding-input"> Description: </td>
               </tr>
-              <tr className={homeWinner}>
-                <td className="simple-game-logo-div"><img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['home_team']['abbreviation']}.svg`}></img> </td>
-                <td className="simple-team-name">{props.game['home_team']['full_name']}</td>
-                <td className="right">{props.game['home_team_score']}</td>
-                <td className="right">&nbsp;
-                </td>
+              <tr>
+                <td className="input-title-td"> <input type="number" id="quantity" name="quantity" min="1" max="10" value={editPlaylistGameRating} onChange={(e) => handleChange(e, 'rating')} /></td>
+                <td> <input type='text' className="expanding-input" placeholder='Optional' value={editPlaylistGameDescription} onChange={(e) => handleChange(e, 'description')} /></td>
               </tr>
               <tr className="simple-game-link-tr">
-                text
+                <td className="simple-game-logo-div">
+                  <img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${game['visitor_team']['abbreviation']}.svg`} />
+                  <img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${game['home_team']['abbreviation']}.svg`} />
+                </td>
+                <td className="simple-game-link-td"> <button className="create-playlist-button" onClick={null}>Game Summary</button> </td>
               </tr>
             </tbody>
           </table>

@@ -7,6 +7,7 @@
   /* Theme Colors */
   --medBlue: #0B153C;
   --darkBlue: #00092D;
+  --gray: #CECCCC;
 
   /* Example of how to call CSS variables:
     color: var(--blue);
@@ -46,7 +47,7 @@ a:hover {
 input {
   color: var(--darkBlue);
   text-align: center;
-  background-color: var(--white);
+  background-color: var(--gray);
   border: 1px solid transparent;
   font-weight: normal;
   font-size: 15px;
@@ -55,16 +56,22 @@ input {
 
 input:hover {
   border: 1px solid var(--red);
+  background-color: var(--white);
 }
 
 input:focus {
   border: 1px solid var(--red);
+  background-color: var(--white);
+}
+
+.expanding-input {
+  width: 90%;
 }
 
 textarea {
   color: var(--darkBlue);
-  /* text-align: center; */
-  background-color: var(--white);
+  text-align: center;
+  background-color: var(--gray);
   border: 1px solid transparent;
   font-weight: normal;
   font-size: 15px;
@@ -75,10 +82,12 @@ textarea {
 
 textarea:hover {
   border: 1px solid var(--red);
+  background-color: var(--white);
 }
 
 textarea:focus {
   border: 1px solid var(--red);
+  background-color: var(--white);
 }
 
 select {
@@ -324,6 +333,11 @@ td.right, th.right {
   text-align: right;
 }
 
+.input-title-td {
+  width: 10%;
+  height: 21px;
+}
+
 .winner {
   font-weight: bold;
 }
@@ -370,6 +384,10 @@ td.right, th.right {
 
 .react-datepicker__day--selected:hover {
   background-color: var(--darkBlue);
+}
+
+.react-datepicker__input-container {
+  background-color: '#CECCCC';
 }
 
 .simple-game-table-div {
@@ -452,4 +470,8 @@ td.right, th.right {
   background-color: var(--white);
   text-align: center;
   margin: 0 0 3px 0;
+}
+
+.submit-playlist-button {
+  background-color: var(--white);
 }
