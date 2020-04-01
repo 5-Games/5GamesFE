@@ -61,6 +61,26 @@ input:focus {
   border: 1px solid var(--red);
 }
 
+textarea {
+  color: var(--darkBlue);
+  /* text-align: center; */
+  background-color: var(--white);
+  border: 1px solid transparent;
+  font-weight: normal;
+  font-size: 15px;
+  outline: none;
+  height: 20px;
+  vertical-align: bottom;
+}
+
+textarea:hover {
+  border: 1px solid var(--red);
+}
+
+textarea:focus {
+  border: 1px solid var(--red);
+}
+
 select {
   color: var(--darkBlue);
   text-align: center;
@@ -272,6 +292,12 @@ table {
   }
 }
 
+.floating-div {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}
+
 .game-table-div {
   white-space: pre-wrap;
   /* height: 72px; */
@@ -349,7 +375,12 @@ td.right, th.right {
 .simple-game-table-div {
   white-space: pre-wrap;
   width: 265px;
+  height: 75px;
   margin: 3px;
+}
+
+.edit-page-div {
+  width: 100%;
 }
 
 .simple-game-table {
@@ -363,6 +394,7 @@ td.right, th.right {
   display: inline-block;
   background-color: var(--white);
   position: relative;
+  height: 72px;
 }
 
 .simple-game-summary {
@@ -377,7 +409,7 @@ td.right, th.right {
 }
 
 .simple-game-logo-div {
-  height: 15px;
+  height: 21px;
   margin: 0;
   padding: 0;
   display: block;
@@ -407,7 +439,8 @@ td.right, th.right {
   letter-spacing: 1px;
   transform: rotate(180deg);
   border-left: 1px solid var(--blue);
-  margin-top: 1px;
+  /* margin-top: 1px; */
+  height: 90%;
 }
 
 .create-playlist-box {

@@ -19,7 +19,8 @@ const SimpleSelectGame = props => {
   }
 
   const handleAddToPlaylist = () => {
-    dispatch(actions.updatePlaylistGames(updatePlaylistGamesArr()));
+    // updateGamesArr requires the
+    dispatch(actions.updateGamesArr(updatePlaylistGamesArr(), 'create'));
   };
 
   // visitorWinner and homeWinner are used to change the className and bold the team name of the winner

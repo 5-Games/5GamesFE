@@ -29,10 +29,33 @@
     });
 
   // createPlaylistGames Actions
-    const updatePlaylistGames = createPlaylistGamesARR => {
-      return {
-        type: 'UPDATE_PLAYLIST_GAMES',
-        payload: createPlaylistGamesARR
+    const updateGamesArr = (gamesArr, page) => {
+      if (page === 'create') {
+        return {
+          type: 'UPDATE_CREATE_GAMES',
+          payload: gamesArr
+        }
+      } else if (page === 'edit') {
+        return {
+          type: 'UPDATE_EDIT_GAMES',
+          payload: gamesArr
+        }
+      }
+    };
+    const continuePlaylistAction = () => ({
+      type: 'CONTINUE_PLAYLIST'
+    });
+    const updateTitleDescription = (payload, target) => {
+      if (target === 'title') {
+        return {
+          type: 'UPDATE_EDIT_TITLE',
+          payload: payload
+        }
+      } else if (target === 'description') {
+        return {
+          type: 'UPDATE_EDIT_DESCRIPTION',
+          payload: payload
+        }
       }
     };
 
@@ -160,10 +183,12 @@ export default {
   logoutUser,
   setUserAction,
   getSelectGamesByDate,
-  updatePlaylistGames,
+  updateGamesArr,
   setSelectGamesMethodAction,
   setSelectGamesByStarredAction,
   setSelectGamesTeamAction,
   setSelectGamesYearAction,
-  getSelectGamesByTeam
+  getSelectGamesByTeam,
+  continuePlaylistAction,
+  updateTitleDescription
 };
