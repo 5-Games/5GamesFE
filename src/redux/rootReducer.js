@@ -122,6 +122,14 @@ export default (state = initialState, { type, payload }) => {
     case 'SET_SELECT_GAMES_BY_STARRED':
       return { ...state, selectGames: { ...state.selectGames, games: [...state.user.starred_games] } }
 
+    // updating list of playlist
+    case 'UPDATE_USER_PLAYLIST':
+      return {...state,
+              user: {
+                ...state.user,
+                playlists: [...state.user.playlists, payload]
+              }
+      }
     default:
       return state;
   }

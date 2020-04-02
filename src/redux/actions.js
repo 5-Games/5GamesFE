@@ -190,10 +190,10 @@
 
     const setPlaylist = (playlist) => {
       console.log(playlist)
-      // return {
-      //   type: DFKJKDFJKFJD,
-      //   payload: playlist
-      // }
+      return {
+        type: 'UPDATE_USER_PLAYLIST',
+        payload: playlist
+      }
     }
 
   // BDL Fetches
