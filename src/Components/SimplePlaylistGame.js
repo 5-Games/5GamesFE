@@ -7,13 +7,16 @@ const SimplePlaylistGame = props => {
   // initializing dispatch
   const dispatch = useDispatch();
 
+  const page = props.page
+
   // Get variables from Redux state
-  const createPlaylistGamesArr = useSelector(state => state.createPlaylistGames);
+  const createGamesArr = (useSelector(state => state.createPlaylistGames))
+  const editGamesArr = (useSelector(state => state.editPlaylistObj.games))
 
   // Move the game up, down, or remove it
   const movePlaylistElement = action => {
     const i = props.arrIndex
-    const arr = [...createPlaylistGamesArr]
+    const arr = page === "create" ? [...createGamesArr] : [...editGamesArr]
     if (action === 'up') {
       if (i === 0) {
         return;
@@ -35,7 +38,7 @@ const SimplePlaylistGame = props => {
   }
 
   const handleMove = action => {
-    dispatch(actions.updatePlaylistGames(movePlaylistElement(action)));
+    dispatch(actions.updateGamesArr(movePlaylistElement(action), page));
   };
 
   // visitorWinner and homeWinner are used to change the className and bold the team name of the winner
@@ -44,12 +47,17 @@ const SimplePlaylistGame = props => {
 
   // only render Up button if index is greater than 0
   const renderUpButton = (props.arrIndex > 0) ? (
-    <> <button className="create-playlist-button" onClick={ () => handleMove('up') }>Move Up</button> | </> 
+    <> <button className="create-playlist-button" onClick={ () => handleMove('up') }>Move Up</button> </> 
     ) : ( null )
 
   // only render Down button if index is less than 4
   const renderDownButton = (props.arrIndex < 4) ? (
-    <> <button className="create-playlist-button" onClick={ () => handleMove('down') }>Move Down</button> | </> 
+    <> <button className="create-playlist-button" onClick={ () => handleMove('down') }>Move Down</button> </> 
+    ) : ( null )
+
+  // only render Down button if on the create page
+  const renderRemoveButton = (page === 'create') ? (
+    <> <button className="create-playlist-button" onClick={ () => handleMove('remove') }>Remove</button> </> 
     ) : ( null )
 
   // formatDate takes the BDL date and returns in format: MM-DD-YY
@@ -72,12 +80,12 @@ const SimplePlaylistGame = props => {
             <table className='simple-game-table'>
               <tbody>     
                 <tr className={visitorWinner}>
-                  <td className="simple-game-logo-div"><img className='simple-game-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['visitor_team']['abbreviation']}.svg`}></img> </td>
+                  <td className="simple-game-logo-div"><img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['visitor_team']['abbreviation']}.svg`}></img> </td>
                   <td className="simple-team-name">{props.game['visitor_team']['full_name']}</td>
                   <td className="right">{props.game['visitor_team_score']}</td>
                 </tr>
                 <tr className={homeWinner}>
-                  <td className="simple-game-logo-div"><img className='simple-game-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['home_team']['abbreviation']}.svg`}></img> </td>
+                  <td className="simple-game-logo-div"><img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${props.game['home_team']['abbreviation']}.svg`}></img> </td>
                   <td className="simple-team-name">{props.game['home_team']['full_name']}</td>
                   <td className="right">{props.game['home_team_score']}</td>
                   <td className="right">&nbsp;
@@ -85,7 +93,7 @@ const SimplePlaylistGame = props => {
                 </tr>
                 <tr className="simple-game-link-tr">
                   <td className="simple-game-link-td" colSpan="3">
-                    {renderUpButton} {renderDownButton} <button className="create-playlist-button" onClick={ () => handleMove('remove') }>Remove</button>
+                    {renderUpButton} { props.arrIndex > 0 && props.arrIndex < 4 ? ' |' : null } {renderDownButton} { page === 'create' ? ' |' : null } {renderRemoveButton}
                   </td>
                 </tr>
               </tbody>

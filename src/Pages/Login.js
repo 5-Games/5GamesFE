@@ -37,8 +37,10 @@ const LoginPage = props => {
     })
   };
 
-  const handleChange = e =>
+  const handleChange = e => {
     setLoginForm({ ...loginForm, [e.target.name]: e.target.value });
+    return e.target.value.length > 0 ? (e.target.style.backgroundColor = 'white') : (e.target.style.backgroundColor = '#CECCCC')
+  }
 
   // Destructuring keys from our local state to use in the form
   const { username, password } = loginForm;

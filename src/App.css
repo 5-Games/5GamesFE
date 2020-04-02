@@ -7,6 +7,7 @@
   /* Theme Colors */
   --medBlue: #0B153C;
   --darkBlue: #00092D;
+  --gray: #CECCCC;
 
   /* Example of how to call CSS variables:
     color: var(--blue);
@@ -46,7 +47,7 @@ a:hover {
 input {
   color: var(--darkBlue);
   text-align: center;
-  background-color: var(--white);
+  background-color: var(--gray);
   border: 1px solid transparent;
   font-weight: normal;
   font-size: 15px;
@@ -55,10 +56,38 @@ input {
 
 input:hover {
   border: 1px solid var(--red);
+  background-color: var(--white);
 }
 
 input:focus {
   border: 1px solid var(--red);
+  background-color: var(--white);
+}
+
+.expanding-input {
+  width: 90%;
+}
+
+textarea {
+  color: var(--darkBlue);
+  text-align: center;
+  background-color: var(--gray);
+  border: 1px solid transparent;
+  font-weight: normal;
+  font-size: 15px;
+  outline: none;
+  height: 20px;
+  vertical-align: bottom;
+}
+
+textarea:hover {
+  border: 1px solid var(--red);
+  background-color: var(--white);
+}
+
+textarea:focus {
+  border: 1px solid var(--red);
+  background-color: var(--white);
 }
 
 select {
@@ -221,6 +250,7 @@ table {
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  padding-bottom: 16px;
 }
 
 .single-column {
@@ -235,7 +265,7 @@ table {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
-  flex: 2;
+  flex: 4;
   text-align: center;
 }
 
@@ -271,6 +301,12 @@ table {
   }
 }
 
+.floating-div {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}
+
 .game-table-div {
   white-space: pre-wrap;
   /* height: 72px; */
@@ -295,6 +331,11 @@ td.center, th.center {
 
 td.right, th.right {
   text-align: right;
+}
+
+.input-title-td {
+  width: 10%;
+  height: 21px;
 }
 
 .winner {
@@ -345,10 +386,19 @@ td.right, th.right {
   background-color: var(--darkBlue);
 }
 
+.react-datepicker__input-container {
+  background-color: '#CECCCC';
+}
+
 .simple-game-table-div {
   white-space: pre-wrap;
   width: 265px;
+  height: 75px;
   margin: 3px;
+}
+
+.edit-page-div {
+  width: 100%;
 }
 
 .simple-game-table {
@@ -362,6 +412,7 @@ td.right, th.right {
   display: inline-block;
   background-color: var(--white);
   position: relative;
+  height: 72px;
 }
 
 .simple-game-summary {
@@ -376,19 +427,22 @@ td.right, th.right {
 }
 
 .simple-game-logo-div {
-  height: 15px;
+  height: 21px;
   margin: 0;
   padding: 0;
-  border: none;
+  display: block;
 }
 
 .simple-game-logo {
-  height: 18px;
+  height: 21px;
   margin: 0;
   padding: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .simple-game-link-td {
+  color: var(--blue);
   text-align: center;
   border-top: 1px solid var(--blue);
 }
@@ -403,7 +457,8 @@ td.right, th.right {
   letter-spacing: 1px;
   transform: rotate(180deg);
   border-left: 1px solid var(--blue);
-  margin-top: 1px;
+  /* margin-top: 1px; */
+  height: 90%;
 }
 
 .create-playlist-box {
@@ -415,4 +470,8 @@ td.right, th.right {
   background-color: var(--white);
   text-align: center;
   margin: 0 0 3px 0;
+}
+
+.submit-playlist-button {
+  background-color: var(--white);
 }

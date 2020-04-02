@@ -5,6 +5,7 @@
   const USERS_URL = BASE_URL + '/users';
   const PERSIST_URL = BASE_URL + '/auth';
   const LOGIN_URL = BASE_URL + '/login';
+  const PLAYLIST_URL = BASE_URL + '/playlists';
   const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
 
 // Frontend Constants
@@ -29,10 +30,46 @@
     });
 
   // createPlaylistGames Actions
-    const updatePlaylistGames = createPlaylistGamesARR => {
-      return {
-        type: 'UPDATE_PLAYLIST_GAMES',
-        payload: createPlaylistGamesARR
+    const updateGamesArr = (gamesArr, page) => {
+      if (page === 'create') {
+        return {
+          type: 'UPDATE_CREATE_GAMES',
+          payload: gamesArr
+        }
+      } else if (page === 'edit') {
+        return {
+          type: 'UPDATE_EDIT_GAMES',
+          payload: gamesArr
+        }
+      }
+    };
+    const continuePlaylistAction = () => ({
+      type: 'CONTINUE_PLAYLIST'
+    });
+    const updateTitleDescription = (value, target) => {
+      if (target === 'title') {
+        return {
+          type: 'UPDATE_EDIT_TITLE',
+          payload: value
+        }
+      } else if (target === 'description') {
+        return {
+          type: 'UPDATE_EDIT_DESCRIPTION',
+          payload: value
+        }
+      }
+    };
+    const updatePlaylistGameRatingDescription = (value, target, index) => {
+      if (target === 'rating') {
+        return {
+          type: 'UPDATE_PLAYLISTGAME_RATING',
+          payload: [value, index]
+        }
+      } else if (target === 'description') {
+        return {
+          type: 'UPDATE_PLAYLISTGAME_DESCRIPTION',
+          payload: [value, index]
+        }
       }
     };
 
@@ -133,6 +170,32 @@
       localStorage.clear();
     };
 
+  // Playlist POST
+  // -------------
+    const createPlaylist = (playlistObj, userId) => dispatch => {
+      const config = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          playlist: playlistObj,
+          userId: userId
+        })
+      };
+      return fetch(PLAYLIST_URL, config)
+        .then(r => r.json())
+        .then(res => dispatch(setPlaylist(res)))
+    };
+
+    const setPlaylist = (playlist) => {
+      console.log(playlist)
+      return {
+        type: 'UPDATE_USER_PLAYLIST',
+        payload: playlist
+      }
+    }
+
   // BDL Fetches
     // get all games from [start_date, end_date]
     const getSelectGamesByDate = date => dispatch => {
@@ -160,10 +223,14 @@ export default {
   logoutUser,
   setUserAction,
   getSelectGamesByDate,
-  updatePlaylistGames,
+  updateGamesArr,
   setSelectGamesMethodAction,
   setSelectGamesByStarredAction,
   setSelectGamesTeamAction,
   setSelectGamesYearAction,
-  getSelectGamesByTeam
+  getSelectGamesByTeam,
+  continuePlaylistAction,
+  updateTitleDescription,
+  updatePlaylistGameRatingDescription,
+  createPlaylist,
 };

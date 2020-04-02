@@ -14,6 +14,7 @@ const Routes = () => {
       <Route path="/login" component={Pages.Login} />
       <Route path="/game" component={Pages.Game} />
       <Route path="/playlist/create" component={Pages.CreatePlaylist} />
+      <Route path="/playlist/edit" component={Pages.EditPlaylist} />
       <Route exact path="/" component={Pages.Home} />
     </Switch>
   );

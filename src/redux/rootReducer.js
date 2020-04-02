@@ -5,6 +5,11 @@
 
 const initialState = {
   createPlaylistGames: ["Add a Game","Add a Game","Add a Game","Add a Game","Add a Game"],
+  editPlaylistObj: {
+    title: '',
+    description: '',
+    games: []
+  },
   currentGame: '20200308/LALLAC',
   selectGames: {
     // When NBA games resume, change the value of date to today
@@ -30,8 +35,53 @@ export default (state = initialState, { type, payload }) => {
       return initialState;
 
     // createPlaylistGames reducers:
-    case 'UPDATE_PLAYLIST_GAMES':
+    case 'UPDATE_CREATE_GAMES':
       return {...state, createPlaylistGames: payload};
+    case 'UPDATE_EDIT_GAMES':
+      return {...state, 
+        editPlaylistObj: {
+          ...state.editPlaylistObj,
+          games: payload
+      }};
+    case 'UPDATE_EDIT_TITLE':
+      return {...state, 
+        editPlaylistObj: {
+          ...state.editPlaylistObj,
+          title: payload
+      }};
+    case 'UPDATE_EDIT_DESCRIPTION':
+      return {...state, 
+        editPlaylistObj: {
+          ...state.editPlaylistObj,
+          description: payload
+      }};
+    case 'UPDATE_PLAYLISTGAME_RATING':
+      const playlistGamesRatingArr = state.editPlaylistObj.games
+      playlistGamesRatingArr[payload[1]].rating = payload[0]
+      return {...state, 
+        editPlaylistObj: {
+          ...state.editPlaylistObj,
+          games: playlistGamesRatingArr
+      }
+    };
+    case 'UPDATE_PLAYLISTGAME_DESCRIPTION':
+      const playlistGamesDescription = state.editPlaylistObj.games
+      playlistGamesDescription[payload[1]].description = payload[0]
+      return {...state, 
+        editPlaylistObj: {
+          ...state.editPlaylistObj,
+          games: playlistGamesDescription
+      }
+    };
+    case 'CONTINUE_PLAYLIST':
+      const editGames = state.createPlaylistGames
+
+      return {...state, 
+                createPlaylistGames: [...initialState.createPlaylistGames],
+                editPlaylistObj: {
+                  ...state.editPlaylistObj,
+                  games: editGames
+              }};
 
     // selectGames reducers:
     case 'SET_SELECT_GAMES_METHOD':
@@ -72,6 +122,14 @@ export default (state = initialState, { type, payload }) => {
     case 'SET_SELECT_GAMES_BY_STARRED':
       return { ...state, selectGames: { ...state.selectGames, games: [...state.user.starred_games] } }
 
+    // updating list of playlist
+    case 'UPDATE_USER_PLAYLIST':
+      return {...state,
+              user: {
+                ...state.user,
+                playlists: [...state.user.playlists, payload]
+              }
+      }
     default:
       return state;
   }
