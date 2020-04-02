@@ -51,7 +51,8 @@ const EditPlaylist = () => {
   };
 
   const handleCreate = () => {
-    console.log(editPlaylistObj)
+    let userId = user.id
+    dispatch(actions.createPlaylist(editPlaylistObj, userId));
   }
 
   // only renders the submit playlist button when a title has been added

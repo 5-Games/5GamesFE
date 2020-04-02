@@ -5,6 +5,7 @@
   const USERS_URL = BASE_URL + '/users';
   const PERSIST_URL = BASE_URL + '/auth';
   const LOGIN_URL = BASE_URL + '/login';
+  const PLAYLIST_URL = BASE_URL + '/playlists';
   const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
 
 // Frontend Constants
@@ -169,6 +170,32 @@
       localStorage.clear();
     };
 
+  // Playlist POST
+  // -------------
+    const createPlaylist = (playlistObj, userId) => dispatch => {
+      const config = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          playlist: playlistObj,
+          userId: userId
+        })
+      };
+      return fetch(PLAYLIST_URL, config)
+        .then(r => r.json())
+        .then(res => dispatch(setPlaylist(res)))
+    };
+
+    const setPlaylist = (playlist) => {
+      console.log(playlist)
+      // return {
+      //   type: DFKJKDFJKFJD,
+      //   payload: playlist
+      // }
+    }
+
   // BDL Fetches
     // get all games from [start_date, end_date]
     const getSelectGamesByDate = date => dispatch => {
@@ -204,5 +231,6 @@ export default {
   getSelectGamesByTeam,
   continuePlaylistAction,
   updateTitleDescription,
-  updatePlaylistGameRatingDescription
+  updatePlaylistGameRatingDescription,
+  createPlaylist,
 };
