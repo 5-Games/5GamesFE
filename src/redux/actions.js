@@ -5,7 +5,9 @@
   const USERS_URL = BASE_URL + '/users';
   const PERSIST_URL = BASE_URL + '/auth';
   const LOGIN_URL = BASE_URL + '/login';
-  const PLAYLIST_URL = BASE_URL + '/playlists';
+  const PLAYLIST_URL = BASE_URL + '/playlists/';
+  const GAME_URL = BASE_URL + '/games/';
+
   const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
 
 // Frontend Constants
@@ -171,7 +173,6 @@
     };
 
   // Playlist POST
-  // -------------
     const createPlaylist = (playlistObj, userId) => dispatch => {
       const config = {
         method: 'POST',
@@ -189,10 +190,35 @@
     };
 
     const setPlaylist = (playlist) => {
-      console.log(playlist)
       return {
         type: 'UPDATE_USER_PLAYLIST',
         payload: playlist
+      }
+    }
+  // Playlist GET 
+    const getCurrentPlaylist = (id) => dispatch => {
+      return fetch(PLAYLIST_URL + id)
+        .then(r => r.json())
+        .then(res => dispatch(setCurrentPlaylist(res)))
+    };
+
+    const setCurrentPlaylist = (playlist) => {
+      return {
+        type: 'SET_CURRENT_PLAYLIST',
+        payload: playlist
+      }
+    }
+
+    const getCurrentGame = (date, homeTeam) => dispatch => {
+      fetch(GAME_URL + date + '/' + homeTeam)
+        .then(r => r.json())
+        .then(res => dispatch(setCurrentGame(res)))
+    }
+
+    const setCurrentGame = (game) => {
+      return {
+        type: 'SET_CURRENT_GAME',
+        payload: game
       }
     }
 
@@ -233,4 +259,6 @@ export default {
   updateTitleDescription,
   updatePlaylistGameRatingDescription,
   createPlaylist,
+  getCurrentGame,
+  getCurrentPlaylist,
 };
