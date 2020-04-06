@@ -200,10 +200,11 @@
       const r = await fetch(PLAYLIST_URL + id);
       return await r.json();
     };
-
+    
+  // Game GET
     const getCurrentGame = async (date, homeTeam) => {
-      const r = await fetch(GAME_URL + date + '/' + homeTeam)
-        return await .then(r => r.json())
+      const r = await fetch(GAME_URL + date + '/' + homeTeam);
+        return await r.json();
     };
 
   // BDL Fetches
