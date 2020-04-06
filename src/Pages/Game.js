@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import actions from '../redux/actions';
 // import PlaylistCard from '../Components/PlaylistCard'
 
 const Game = ({ gameId }) => {
@@ -8,7 +9,7 @@ const Game = ({ gameId }) => {
   // Get variables from Redux state
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
-  // const currentGame = useSelector(state => state.currentGame);
+  const currentGame = useSelector(state => state.currentGame);
 
   // Setting the document title using Hooks.
   // Could use react-document-title instead:
