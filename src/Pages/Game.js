@@ -86,6 +86,11 @@ const Game = () => {
                         {/* <td className="right">31</td> */}
                       </tr>
                       <tr>
+                        <td><strong>Basketball Reference Page</strong></td>
+                        {/* <td><a href="/players/m/marjabo01.html">B. Marjanović</a>-DAL</td>
+                        <td className="right">17</td> */}
+                      </tr>
+                      <tr>
                         <td><strong>Watch YouTube Highlights</strong></td>
                         {/* <td><a href="/players/m/marjabo01.html">B. Marjanović</a>-DAL</td>
                         <td className="right">17</td> */}
