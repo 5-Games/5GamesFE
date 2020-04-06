@@ -475,3 +475,14 @@ td.right, th.right {
 .submit-playlist-button {
   background-color: var(--white);
 }
+
+.playlist-card {
+  padding: 5px;
+  height: 72px;
+  width: 265px;
+  border: 1px solid var(--blue);
+  display: inline-block;
+  background-color: var(--white);
+  text-align: left;
+  margin: 0 0 3px 0;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import UserPlaylists from '../Containers/UserPlaylists';
 
 
 const Home = () => {
@@ -15,12 +16,44 @@ const Home = () => {
     document.title = "Home | 5 Games"
   }, []);
 
-  const noUser = user.username ? (
-    null
+  const conditionalContent = user.username ? (
+    // content when user is logged in
+    <>
+    <div className='row'>
+      <div className='single-column'>
+        <h3>
+          Your Playlists:
+        </h3>
+        <div>
+          <UserPlaylists />
+        </div>
+      </div>
+      <div className='double-column'>
+        <h3>
+          Links:
+        </h3>
+        <div className="sub-row">
+          <div className="sub-row">
+            An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
+          </div >
+          <div className="sub-row">
+            <Link to="/game">Temporary link to current game.</Link>
+          </div >
+          <div className="sub-row">
+            <Link to="/playlist/create">Temporary link to create playlist.</Link>
+          </div >
+        </div>
+      </div>
+    </div>
+  </>
   ) : (
     <>
-      <br />
-      <h3>Please <Link className='home-link' to="/signup">sign up</Link> or <Link className='home-link' to="/login">log in</Link>.</h3>
+      <h3>
+        Please <Link className='home-link' to="/signup">sign up</Link> or <Link className='home-link' to="/login">log in</Link>.
+      </h3>
+      <div>
+        An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
+      </div>
     </>
   );
 
@@ -28,22 +61,9 @@ const Home = () => {
           <h1>
             WELCOME TO FIVE GAMES
           </h1>
-          <div className="row">
-            <div className="single-column">
-              <div>
-                An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
-              </div>
-              <div>
-                <Link to="/game">Temporary link to current game.</Link>
-              </div>
-              <div>
-                <Link to="/playlist/create">Temporary link to create playlist.</Link>
-              </div>
-              <div>
-                { noUser }
-              </div>
-            </div>
-          </div>
+          <>
+            { conditionalContent }
+          </>
         </div>
 };
 
