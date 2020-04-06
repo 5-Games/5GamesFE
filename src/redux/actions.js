@@ -196,14 +196,14 @@
       }
     }
   // Playlist GET 
-    const getCurrentPlaylist = (id) => {
-      return fetch(PLAYLIST_URL + id)
-        .then(r => r.json())
+    const getCurrentPlaylist = async (id) => {
+      const r = await fetch(PLAYLIST_URL + id);
+      return await r.json();
     };
 
-    const getCurrentGame = (date, homeTeam) => {
-      return fetch(GAME_URL + date + '/' + homeTeam)
-        .then(r => r.json())
+    const getCurrentGame = async (date, homeTeam) => {
+      const r = await fetch(GAME_URL + date + '/' + homeTeam)
+        return await .then(r => r.json())
     };
 
   // BDL Fetches
