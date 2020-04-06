@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import PlaylistCard from '../Components/PlaylistCard'
 
 const Game = ({ gameId }) => {
 
   // Get variables from Redux state
+  const dispatch = useDispatch();
   const user = useSelector(state => state.user);
-  const currentGame = useSelector(state => state.currentGame);
+  // const currentGame = useSelector(state => state.currentGame);
 
   // Setting the document title using Hooks.
   // Could use react-document-title instead:
   // https://github.com/gaearon/react-document-title
   useEffect(() => {
     document.title = `${currentGame} | 5 Games`
+    dispatch(actions.getCurrentGame())
   }, []);
 
   const noUser = user.username ? (

@@ -24,7 +24,6 @@ const initialState = {
     playlists: [],
     starred_playlists: []
   },
-  currentPlaylist: {},
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -132,12 +131,6 @@ export default (state = initialState, { type, payload }) => {
               }
       }
 
-    case 'SET_CURRENT_PLAYLIST':
-      return {...state, currentPlaylist: payload}
-    
-    case 'SET_CURRENT_GAME':
-      return {...state, currentGame: payload}
-      
     default:
       return state;
   }

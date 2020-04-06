@@ -196,31 +196,15 @@
       }
     }
   // Playlist GET 
-    const getCurrentPlaylist = (id) => dispatch => {
+    const getCurrentPlaylist = (id) => {
       return fetch(PLAYLIST_URL + id)
         .then(r => r.json())
-        .then(res => dispatch(setCurrentPlaylist(res)))
     };
 
-    const setCurrentPlaylist = (playlist) => {
-      return {
-        type: 'SET_CURRENT_PLAYLIST',
-        payload: playlist
-      }
-    }
-
-    const getCurrentGame = (date, homeTeam) => dispatch => {
-      fetch(GAME_URL + date + '/' + homeTeam)
+    const getCurrentGame = (date, homeTeam) => {
+      return fetch(GAME_URL + date + '/' + homeTeam)
         .then(r => r.json())
-        .then(res => dispatch(setCurrentGame(res)))
-    }
-
-    const setCurrentGame = (game) => {
-      return {
-        type: 'SET_CURRENT_GAME',
-        payload: game
-      }
-    }
+    };
 
   // BDL Fetches
     // get all games from [start_date, end_date]

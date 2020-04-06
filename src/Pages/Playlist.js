@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Playlist = ({ playlistId }) => {
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-
+    dispatch(actions.getCurrentPlaylist(playlistId))
   }, []);
-
-  console.log(playlistId)
 
   return (
     <div>
