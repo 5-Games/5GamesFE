@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import PlaylistCard from '../Components/PlaylistCard'
 
-const Game = () => {
+const Game = ({ gameId }) => {
 
   // Get variables from Redux state
   const user = useSelector(state => state.user);
@@ -97,7 +97,7 @@ const Game = () => {
 
   // Function below not ready yet
   // const playlists = currentGame.playlists.map(playlist => <PlaylistCard playlist={playlist}/>)
-
+  
   return <div className="game-show-page">
             <h1>
               {currentGame}
