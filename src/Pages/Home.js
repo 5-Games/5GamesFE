@@ -34,13 +34,17 @@ const Home = () => {
         </h3>
         <div className="sub-row">
           <div className="sub-row">
-            An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
-          </div >
-          <div className="sub-row">
-            <Link to="/game">Temporary link to current game.</Link>
-          </div >
-          <div className="sub-row">
-            <Link to="/playlist/create">Temporary link to create playlist.</Link>
+            <div className="sub-row">
+              <div>
+                An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
+              </div>
+            </div>
+            <div className="sub-row">
+              <Link to="/game">Temporary link to current game.</Link>
+            </div >
+            <div className="sub-row">
+              <Link to="/playlist/create">Temporary link to create playlist.</Link>
+            </div >
           </div >
         </div>
       </div>
@@ -48,11 +52,13 @@ const Home = () => {
   </>
   ) : (
     <>
+      <div className='single-column'>
       <h3>
         Please <Link className='home-link' to="/signup">sign up</Link> or <Link className='home-link' to="/login">log in</Link>.
       </h3>
-      <div>
+        <div>
         An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
+        </div>
       </div>
     </>
   );

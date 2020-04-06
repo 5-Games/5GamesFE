@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../redux/actions';
-import { Link } from 'react-router-dom';
 
 const EditPlaylistGame = ({ arrIndex, game }) => {
   // initializing dispatch
