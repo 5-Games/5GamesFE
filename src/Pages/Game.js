@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import actions from '../redux/actions';
@@ -8,6 +8,7 @@ const Game = ({ gameId }) => {
 
   // Get variables from Redux state
   const dispatch = useDispatch();
+  const [game, setGame] = useState({});
   const user = useSelector(state => state.user);
   const currentGame = useSelector(state => state.currentGame);
 
@@ -17,6 +18,7 @@ const Game = ({ gameId }) => {
   useEffect(() => {
     document.title = `${currentGame} | 5 Games`
     dispatch(actions.getCurrentGame())
+    .then(data => setGame(data))
   }, []);
 
   const noUser = user.username ? (
