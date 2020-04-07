@@ -3,6 +3,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 // allows us to route to all pages within the Pages folder
 import Pages from './Pages';
+import Game from './Pages/Game';
+import Playlist from './Pages/Playlist';
 
 const Routes = () => {
   return (
@@ -12,12 +14,29 @@ const Routes = () => {
     <Switch>
       <Route path="/signup" component={Pages.Signup} />
       <Route path="/login" component={Pages.Login} />
-      <Route path="/game" component={Pages.Game} />
+      {/* <Route path="/game" component={Pages.Game} /> */}
+      <Route exact path="/games/:date/:homeTeam">
+        {renderGame}
+      </Route>
       <Route path="/playlist/create" component={Pages.CreatePlaylist} />
       <Route path="/playlist/edit" component={Pages.EditPlaylist} />
+      <Route exact path="/playlists/:id">
+        {renderPlaylist}
+      </Route>
       <Route exact path="/" component={Pages.Home} />
     </Switch>
-  );
+  );  
 };
+
+const renderGame = (renderParams) => {
+  const date = renderParams.match.params.date
+  const homeTeam = renderParams.match.params.homeTeam
+  return <Game date={date} homeTeam={homeTeam} /> 
+}
+
+const renderPlaylist = (renderParams) => {
+  const playlistId = parseInt(renderParams.match.params.id)
+  return <Playlist playlistId={playlistId} />
+}
 
 export default Routes;
