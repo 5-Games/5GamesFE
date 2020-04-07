@@ -15,7 +15,7 @@ const Routes = () => {
       <Route path="/signup" component={Pages.Signup} />
       <Route path="/login" component={Pages.Login} />
       {/* <Route path="/game" component={Pages.Game} /> */}
-      <Route exact path="/games/:id">
+      <Route exact path="/games/:date/:homeTeam">
         {renderGame}
       </Route>
       <Route path="/playlist/create" component={Pages.CreatePlaylist} />
@@ -29,8 +29,9 @@ const Routes = () => {
 };
 
 const renderGame = (renderParams) => {
-  const gameId = parseInt(renderParams.match.params.id)
-  return <Game gameId={gameId} /> 
+  const date = renderParams.match.params.date
+  const homeTeam = renderParams.match.params.homeTeam
+  return <Game date={date} homeTeam={homeTeam} /> 
 }
 
 const renderPlaylist = (renderParams) => {

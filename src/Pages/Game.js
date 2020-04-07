@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import actions from '../redux/actions';
 // import PlaylistCard from '../Components/PlaylistCard'
 
-const Game = ({ gameId }) => {
+const Game = ({ date, homeTeam }) => {
 
   // Get variables from Redux state
   const dispatch = useDispatch();
-  const [game, setGame] = useState({});
+  const [currentG, setCurrentG] = useState({});
   const user = useSelector(state => state.user);
   const currentGame = useSelector(state => state.currentGame);
 
@@ -17,8 +17,8 @@ const Game = ({ gameId }) => {
   // https://github.com/gaearon/react-document-title
   useEffect(() => {
     document.title = `${currentGame} | 5 Games`
-    dispatch(actions.getCurrentGame())
-    .then(data => setGame(data))
+    dispatch(actions.getCurrentGame(date, homeTeam))
+    .then(data => setCurrentG(data))
   }, []);
 
   const noUser = user.username ? (
