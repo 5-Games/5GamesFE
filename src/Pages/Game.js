@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import actions from '../redux/actions';
+// import actions from '../redux/actions';
 // import PlaylistCard from '../Components/PlaylistCard'
 
 const Game = ({ date, homeTeam }) => {
 
   // Get variables from Redux state
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [currentG, setCurrentG] = useState({});
   const user = useSelector(state => state.user);
   const currentGame = useSelector(state => state.currentGame);
@@ -16,9 +16,10 @@ const Game = ({ date, homeTeam }) => {
   // Could use react-document-title instead:
   // https://github.com/gaearon/react-document-title
   useEffect(() => {
+    fetch('http://localhost:3000/games/' + date + '/' + homeTeam)
+      .then(r => r.json())
+      .then(res => setCurrentG(res))
     document.title = `${currentGame} | 5 Games`
-    dispatch(actions.getCurrentGame(date, homeTeam))
-    .then(data => setCurrentG(data))
   }, []);
 
   const noUser = user.username ? (
@@ -105,7 +106,8 @@ const Game = ({ date, homeTeam }) => {
   
   return <div className="game-show-page">
             <h1>
-              {currentGame}
+              {/* {currentGame} */}
+              {currentG.date}
             </h1>
             <div className='game-table-div'>
               {game}

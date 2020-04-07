@@ -12,6 +12,7 @@ const Routes = () => {
     // See: https://reacttraining.com/react-router/web/guides/basic-components
     // Routes need two props: path and component
     <Switch>
+      <Route exact path="/" component={Pages.Home} />
       <Route path="/signup" component={Pages.Signup} />
       <Route path="/login" component={Pages.Login} />
       {/* <Route path="/game" component={Pages.Game} /> */}
@@ -23,7 +24,6 @@ const Routes = () => {
       <Route exact path="/playlists/:id">
         {renderPlaylist}
       </Route>
-      <Route exact path="/" component={Pages.Home} />
     </Switch>
   );  
 };

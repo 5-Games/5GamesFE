@@ -34,7 +34,7 @@ const SimpleSelectGame = props => {
       return d[1] +'/'+ d[2] +'/'+ d[0].slice(2, 4);
     }
 
-  const passedDate = props.game.date.slice(0, 10).replace(/-/g, "");
+  const passedDate = props.game.date.slice(0, 10);
   const teamAbr = props.game.home_team.abbreviation;
 
   // Renders the simple game component. Draggable disable for now. Needs Game Summary link.
