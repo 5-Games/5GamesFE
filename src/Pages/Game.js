@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import actions from '../redux/actions';
 // import PlaylistCard from '../Components/PlaylistCard'
 
-const Game = ({ date, homeTeam }) => {
+const Game = () => {
 
   // Get variables from Redux state
-  const dispatch = useDispatch();
-  const [currentG, setCurrentG] = useState({});
   const user = useSelector(state => state.user);
   const currentGame = useSelector(state => state.currentGame);
 
@@ -17,8 +14,6 @@ const Game = ({ date, homeTeam }) => {
   // https://github.com/gaearon/react-document-title
   useEffect(() => {
     document.title = `${currentGame} | 5 Games`
-    dispatch(actions.getCurrentGame(date, homeTeam))
-    .then(data => setCurrentG(data))
   }, []);
 
   const noUser = user.username ? (
@@ -107,7 +102,7 @@ const Game = ({ date, homeTeam }) => {
 
   // Function below not ready yet
   // const playlists = currentGame.playlists.map(playlist => <PlaylistCard playlist={playlist}/>)
-  
+
   return <div className="game-show-page">
             <h1>
               {currentGame}

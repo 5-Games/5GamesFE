@@ -22,7 +22,7 @@ const PlaylistCard = ({ playlist }) => {
 
   return (
     <>
-      <Link to={"/playlists/" + playlist.id}>
+      <Link to='/'>
         <div className='playlist-card'>
           <h4>{ truncatedTitle }</h4>
           {/* <div>by: {playlist.user_id}</div> */}
