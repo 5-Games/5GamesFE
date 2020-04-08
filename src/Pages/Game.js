@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import actions from '../redux/actions';
 // import PlaylistCard from '../Components/PlaylistCard'
 
-const Game = ({ date, homeTeam }) => {
+const Game = () => {
 
   // Get variables from Redux state
   // const dispatch = useDispatch();
@@ -92,6 +92,11 @@ const Game = ({ date, homeTeam }) => {
                         {/* <td className="right">31</td> */}
                       </tr>
                       <tr>
+                        <td><strong>Basketball Reference Page</strong></td>
+                        {/* <td><a href="/players/m/marjabo01.html">B. Marjanović</a>-DAL</td>
+                        <td className="right">17</td> */}
+                      </tr>
+                      <tr>
                         <td><strong>Watch YouTube Highlights</strong></td>
                         {/* <td><a href="/players/m/marjabo01.html">B. Marjanović</a>-DAL</td>
                         <td className="right">17</td> */}
@@ -103,7 +108,7 @@ const Game = ({ date, homeTeam }) => {
 
   // Function below not ready yet
   // const playlists = currentGame.playlists.map(playlist => <PlaylistCard playlist={playlist}/>)
-  
+
   return <div className="game-show-page">
             <h1>
               {/* {currentGame} */}
