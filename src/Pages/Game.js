@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import actions from '../redux/actions';
 // import PlaylistCard from '../Components/PlaylistCard'
 
-const Game = () => {
+const Game = ({ date, homeTeam }) => {
 
   // Get variables from Redux state
   // const dispatch = useDispatch();

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import actions from '../redux/actions';
 // import Draggable from 'react-draggable';
 
@@ -62,7 +63,7 @@ const SimpleSelectGame = props => {
                   </tr>
                   <tr className="simple-game-link-tr">
                     <td className="simple-game-link-td" colSpan="3">
-                      <button className="create-playlist-button" onClick={handleAddToPlaylist}>Add to Playlist</button> | <button className="create-playlist-button" onClick={null}>Game Summary</button>
+                      <button className="create-playlist-button" onClick={handleAddToPlaylist}>Add to Playlist</button> | <Link to={"/games/" + passedDate + "/" + teamAbr}><button className="create-playlist-button" onClick={null}>Game Summary</button></Link>
                     </td>
                   </tr>
               </tbody>
