@@ -63,7 +63,7 @@ const SimpleSelectGame = props => {
                   </tr>
                   <tr className="simple-game-link-tr">
                     <td className="simple-game-link-td" colSpan="3">
-                      <button className="create-playlist-button" onClick={handleAddToPlaylist}>Add to Playlist</button> | <Link to={"/games/" + passedDate + "/" + teamAbr}><button className="create-playlist-button" onClick={null}>Game Summary</button></Link>
+                      <button className="create-playlist-button" onClick={handleAddToPlaylist}>Add to Playlist</button> | <Link target='_blank' to={"/games/" + passedDate + "/" + teamAbr}><button className="create-playlist-button" onClick={null}>Game Summary</button></Link>
                     </td>
                   </tr>
               </tbody>

@@ -6,7 +6,7 @@ import SimplePlaylistGame from '../Components/SimplePlaylistGame';
 import EditPlaylistGame from '../Components/EditPlaylistGame';
 
 
-const EditPlaylist = () => {
+const EditPlaylist = props => {
   // initializing dispatch
   const dispatch = useDispatch();
 
@@ -52,7 +52,14 @@ const EditPlaylist = () => {
 
   const handleCreate = () => {
     let userId = user.id
-    dispatch(actions.createPlaylist(editPlaylistObj, userId));
+    dispatch(actions.createPlaylist(editPlaylistObj, userId))
+      .then(res => {
+        dispatch(actions.setPlaylist(res));
+        // console.log(res)
+        props.history.push(`/playlists/${res.id}`);
+      })
+    // need to make this send the user to the playlist that was just edited/created.
+    // props.history.push('/');
   }
 
   // only renders the submit playlist button when a title has been added
