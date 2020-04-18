@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import actions from '../redux/actions';
 import teamsArr from '../Data/teams.json'
 import { Link } from 'react-router-dom';
+import ShareLinks from '../Components/ShareLinks';
 
 const Playlist = ({ playlistId }) => {
 
@@ -118,6 +119,9 @@ const Playlist = ({ playlistId }) => {
               "{playlist.title}" by (user name?)
             </h1>
               {description}
+              <div className="playlist-sharing-links">
+                <ShareLinks playlist={playlist}/>
+              </div>
             <div className='row'>
               <div className='single-column'>
                 <div className='floating-div'>
@@ -133,6 +137,9 @@ const Playlist = ({ playlistId }) => {
                 </div>
               </div>
             </div>
+            <div className="playlist-sharing-links">
+                <ShareLinks playlist={playlist}/>
+              </div>
         </div>
 };
 

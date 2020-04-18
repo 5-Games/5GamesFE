@@ -493,3 +493,14 @@ td.right, th.right {
   text-align: left;
   margin: 0 0 3px 0;
 }
+
+.playlist-sharing-links {
+  
+}
+
+.Demo__container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 16px;
+}
