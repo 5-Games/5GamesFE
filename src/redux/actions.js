@@ -185,11 +185,11 @@
       };
       return fetch(PLAYLIST_URL, config)
         .then(r => r.json())
-        .then(res => dispatch(setPlaylist(res)))
+        // moved the second .then to the componenet so that we have access to the playlist id
+        // .then(res => dispatch(setPlaylist(res)))
     };
 
     const setPlaylist = (playlist) => {
-      console.log(playlist)
       return {
         type: 'UPDATE_USER_PLAYLIST',
         payload: playlist
@@ -233,4 +233,5 @@ export default {
   updateTitleDescription,
   updatePlaylistGameRatingDescription,
   createPlaylist,
+  setPlaylist
 };
