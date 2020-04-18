@@ -40,7 +40,7 @@ const EditPlaylistGame = ({ arrIndex, game }) => {
                 <td> <input type='text' className="expanding-input" placeholder='Optional' value={editPlaylistGameDescription} onChange={(e) => handleChange(e, 'description')} /></td>
               </tr>
               <tr className="simple-game-link-tr">
-                <td className="simple-game-logo-div">
+                <td className="description-logo-box">
                   <img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${game['visitor_team']['abbreviation']}.svg`} />
                   <img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${game['home_team']['abbreviation']}.svg`} />
                 </td>

@@ -25,7 +25,7 @@ const EditPlaylist = props => {
   // Could use react-document-title instead:
   // https://github.com/gaearon/react-document-title
   useEffect(() => {
-    document.title = `Edit | 5 Games`
+    document.title = `Edit Playlist | 5 Games`
   }, []);
 
   // editPlaylistGamesMap renders the game components by iterating over selectGames
@@ -51,25 +51,20 @@ const EditPlaylist = props => {
   };
 
   const handleCreate = () => {
-    let userId = user.id
-    dispatch(actions.createPlaylist(editPlaylistObj, userId))
-      .then(res => {
-        dispatch(actions.setPlaylist(res));
-        // console.log(res)
-        props.history.push(`/playlists/${res.id}`);
-      })
-    // need to make this send the user to the playlist that was just edited/created.
-    // props.history.push('/');
+    if (editPlaylistTitle.length === 0) {
+      alert('Please enter a title to submit');
+    } else {
+      let userId = user.id
+      dispatch(actions.createPlaylist(editPlaylistObj, userId))
+        .then(res => {
+          dispatch(actions.setPlaylist(res));
+          props.history.push(`/playlists/${res.id}`);
+        })
+    }
   }
 
   // only renders the submit playlist button when a title has been added
-  const renderCreatePlaylistButton = editPlaylistTitle.length > 0 ? (
-    <>
-      <Link className="submit-editplaylist-button" to='#' onClick={ () => handleCreate() }>Submit Playlist</Link>
-    </> 
-  ) : (
-    <> Edit Playlist </>
-  )
+  const renderCreatePlaylistButton = <Link className="submit-editplaylist-button" to='#' onClick={ handleCreate }>Submit Playlist</Link>
 
   // conditionalContent only loads if a user is logged in
   const conditionalContent = user.username ? (

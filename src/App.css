@@ -161,7 +161,6 @@ h3 {
 table {
   display: table;
   border-collapse: collapse;
-  border-spacing: 2px;
   border-color: var(--blue);
   font-size: 14px;
 }
@@ -428,20 +427,28 @@ td.right, th.right {
 
 .simple-game-logo-div {
   height: 21px;
+  width: 21px;
   margin: 0;
   padding: 0;
-  display: block;
+  display: inline-block;
 }
 
 .simple-game-logo {
   height: 21px;
   margin: 0;
   padding: 0;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.simple-game-link-td {
+.description-logo-box {
+  height: 21px;
+  width: 21px;
+  margin: 0;
+  padding: 0;
+  display: contents;
+  border-top: 1px solid var(--blue);
+}
+
+.simple-game-link-tr {
   color: var(--blue);
   text-align: center;
   border-top: 1px solid var(--blue);
