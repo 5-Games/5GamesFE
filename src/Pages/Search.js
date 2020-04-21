@@ -24,13 +24,16 @@ const Search = () => {
   
   return (
     <>
-     <h2>Search for playlists: 
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Search' value={input} onChange={e => setInput(e.target.value)} />
-        {" "}
-        <input type="submit" value="Submit" />
-      </form>
-     </h2>
+      <h1>
+        SEARCH 
+      </h1>
+      <h2>
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder='search playlists' value={input} onChange={e => setInput(e.target.value)} />
+          {" "}
+          <input type="submit" value="Submit" />
+        </form>
+      </h2>
      <div className="row">
        <div className="single-column">
          {searchPlaylistsMap}
