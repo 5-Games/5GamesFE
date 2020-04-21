@@ -15,9 +15,9 @@ const Search = () => {
   }
 
   const searchPlaylistsMap = searchResults.map((playlist) =>
-                      <div>
+                      <div key={playlist["id"]} >
                         <PlaylistCard 
-                          key={playlist["id"]} 
+                          
                           playlist={playlist}
                         />
                       </div>)
