@@ -28,11 +28,11 @@ const SimpleSelectGame = props => {
   const visitorWinner = props.game['visitor_team_score'] > props.game['home_team_score'] ? "winner" : null
   const homeWinner = props.game['home_team_score'] > props.game['visitor_team_score'] ? "winner" : null
 
-    // formatDate takes the BDL date and returns in format: MM-DD-YY
-    const formatDate = (date) => {
-      let d = date.slice(0, 10).split('-');   
-      return d[1] +'/'+ d[2] +'/'+ d[0].slice(2, 4);
-    }
+  // formatDate takes the BDL date and returns in format: MM-DD-YY
+  const formatDate = (date) => {
+    let d = date.slice(0, 10).split('-');   
+    return d[1] +'/'+ d[2] +'/'+ d[0].slice(2, 4);
+  }
 
   const passedDate = props.game.date.slice(0, 10);
   const teamAbr = props.game.home_team.abbreviation;
