@@ -13,8 +13,6 @@ const Game = ({ date, homeTeam }) => {
   
   // destructuring keys from local state
   const {linkDate, away, home, away_score, home_score} = {...currentG}
-  
-  console.log(currentG)
 
   const leaguePassLink = `https://www.nba.com/games/${linkDate}/${away}${home}?ss=watch#/recap`
   const basketballReferenceLink = `https://www.basketball-reference.com/boxscores/${linkDate}0${home}.html`

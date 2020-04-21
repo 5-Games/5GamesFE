@@ -41,6 +41,9 @@ const Playlist = ({ playlistId }) => {
     return d[1] +'/'+ d[2] +'/'+ d[0].slice(2, 4);
   }
 
+  const leaguePassLink = (date, away, home) => `https://www.nba.com/games/${date.replace(/-/g,"")}/${away}${home}?ss=watch#/recap`
+  const basketballReferenceLink = (date, home) => `https://www.basketball-reference.com/boxscores/${date.replace(/-/g,"")}0${home}.html`
+
   const leftColumn = playlist.playlist_games ?
     playlist.playlist_games.map(game => {
       return < div key={game.id} > 
@@ -100,7 +103,8 @@ const Playlist = ({ playlistId }) => {
                         <img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${game.game.home}.svg`} />
                     </td>
                     <td className="simple-game-link-td">
-                      <Link className='home-link' to={`/games/${game.game.date}/${game.game.home}`} target='_blank' > Game Summary </Link> 
+                    <a className='home-link' href={ leaguePassLink(game.game.date, game.game.away, game.game.home) } target='_blank' > View on League Pass </a> |
+                    <a className='home-link' href={ basketballReferenceLink(game.game.date, game.game.home) } target='_blank' > Basketball Reference </a> 
                     </td>
                   </tr>
                 </tbody>
