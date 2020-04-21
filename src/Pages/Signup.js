@@ -35,9 +35,9 @@ const Signup = props => {
           alert(data.errors);
           return;
         } else {
-        let starred_games = data.user_starred_games
-        let playlists = data.playlists
-        let starred_playlists = data.starred_playlists
+        let starred_games = []
+        let playlists = []
+        let starred_playlists = []
         dispatch(actions.setUserAction({...data.user, starred_games, playlists, starred_playlists}));
         localStorage.setItem('token', data.token);
         history.push('/');
