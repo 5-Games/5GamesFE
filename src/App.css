@@ -260,6 +260,15 @@ table {
   text-align: center;
 }
 
+.center-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  text-align: center;
+  align-items: center;
+}
+
 .double-column {
   display: flex;
   flex-direction: column;

@@ -1,11 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import actions from '../redux/actions';
 
 const EditPlaylistGame = ({ arrIndex, game }) => {
   // initializing dispatch
   const dispatch = useDispatch();
 
+  const date = game.date ?
+    game.date.slice(0, 10)
+    : ''
+
+  const homeAbv = game.home_team ?
+    game.home_team.abbreviation
+    : ''
 
   // On loading component, give each game a rating and description. Need to fix this so they are initialized with them instead.
   useEffect(() => {
@@ -44,7 +52,9 @@ const EditPlaylistGame = ({ arrIndex, game }) => {
                   <img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${game['visitor_team']['abbreviation']}.svg`} />
                   <img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${game['home_team']['abbreviation']}.svg`} />
                 </td>
-                <td className="simple-game-link-td"> <button className="create-playlist-button" onClick={null}>Game Summary</button> </td>
+                <td className="simple-game-link-td"> 
+                  <Link className='home-link' to={`/games/${date}/${homeAbv}`} target='_blank' > Game Summary </Link>
+                </td>
               </tr>
             </tbody>
           </table>

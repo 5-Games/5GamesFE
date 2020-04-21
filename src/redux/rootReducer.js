@@ -10,7 +10,7 @@ const initialState = {
     description: '',
     games: []
   },
-  currentGame: '20200308/LALLAC',
+  // currentGame: '20200308/LALLAC',
   selectGames: {
     // When NBA games resume, change the value of date to today
     date: new Date('March 11, 2020 00:00:00'),

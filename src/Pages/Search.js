@@ -15,10 +15,12 @@ const Search = () => {
   }
 
   const searchPlaylistsMap = searchResults.map((playlist) =>
+                      <div>
                         <PlaylistCard 
                           key={playlist["id"]} 
                           playlist={playlist}
-                        />)
+                        />
+                      </div>)
   
   return (
     <>
