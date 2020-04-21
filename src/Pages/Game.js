@@ -98,9 +98,9 @@ const Game = ({ date, homeTeam }) => {
           <div>
           <a href={ basketballReferenceLink } target='_blank'> Basketball Reference Page </a>
           </div>
-          <div>
+          {/* <div>
             YouTube Highlights (coming soon...)
-          </div>
+          </div> */}
         </div>
         {/* <div className='double-column'> */}
         </div>
