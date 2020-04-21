@@ -4,6 +4,7 @@ import Home from './Home';
 import Game from './Game';
 import CreatePlaylist from './CreatePlaylist';
 import EditPlaylist from './EditPlaylist';
+import Search from './Search';
 
 export default {
   Signup,
@@ -11,5 +12,6 @@ export default {
   Home,
   Game,
   CreatePlaylist,
-  EditPlaylist
+  EditPlaylist,
+  Search
 };

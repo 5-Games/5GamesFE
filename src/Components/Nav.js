@@ -25,6 +25,7 @@ const Nav = () => {
         { name  
           ? <> 
               {/* put links here that show when logged in */}
+              <NavLink className='nav-link' to="/search" activeClassName='active-nav-link'>Search</NavLink>
               <NavLink className='nav-link' to="/playlist/create" activeClassName='active-nav-link'>Create</NavLink>
             </>
           : <> 
