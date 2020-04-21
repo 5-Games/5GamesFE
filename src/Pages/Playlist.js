@@ -9,8 +9,7 @@ const Playlist = ({ playlistId }) => {
 
   // const dispatch = useDispatch();
   const [playlist, setPlaylist] = useState({});
-
-  // console.log('playlist', playlist, playlist.title)
+  const [user, setUser] = useState({})
 
   useEffect(() => {
     document.title = `Playlist | 5 Games`
@@ -21,6 +20,7 @@ const Playlist = ({ playlistId }) => {
       .then(r => r.json())
       .then(res => {
         setPlaylist(res)
+        setUser(res.user)
         document.title = `${res.title} | 5 Games`
       })
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -111,12 +111,9 @@ const Playlist = ({ playlistId }) => {
   })
   : 'loading'
 
-
-
   return <div className="game-show-page">
             <h1>
-              {/* need to find a way to show the user name of the creator */}
-              "{playlist.title}" by (user name?)
+              "{playlist.title}" by {user.username}
             </h1>
               {description}
               <div className="playlist-sharing-links">
