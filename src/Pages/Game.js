@@ -35,7 +35,7 @@ const Game = ({ date, homeTeam }) => {
         setCurrentG(res, res['linkDate'] = res.date.replace(/-/g,""))
         document.title = `${res.away} v ${res.home} - ${res.date} | 5 Games`
       })
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // visitorWinner and homeWinner are used to change the className and bold the team name of the winner
   const visitorWinner = away_score > home_score ? "winner" : null
@@ -91,10 +91,10 @@ const Game = ({ date, homeTeam }) => {
           </div>
           {game}
           <div>
-            <a href={ leaguePassLink } target='_blank'> Watch on League Pass </a>
+            <a href={ leaguePassLink } target='_blank' rel="noopener noreferrer"> NBA League Pass </a>
           </div>
           <div>
-          <a href={ basketballReferenceLink } target='_blank'> Basketball Reference Page </a>
+          <a href={ basketballReferenceLink } target='_blank' rel="noopener noreferrer"> Basketball Reference </a>
           </div>
           {/* <div>
             YouTube Highlights (coming soon...)

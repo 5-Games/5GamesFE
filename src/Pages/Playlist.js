@@ -103,8 +103,8 @@ const Playlist = ({ playlistId }) => {
                         <img className='simple-game-logo' alt='team-logo' src={`https://cdn.nba.net/assets/logos/teams/secondary/web/${game.game.home}.svg`} />
                     </td>
                     <td className="simple-game-link-td">
-                    <a className='home-link' href={ leaguePassLink(game.game.date, game.game.away, game.game.home) } target='_blank' > View on League Pass </a> |
-                    <a className='home-link' href={ basketballReferenceLink(game.game.date, game.game.home) } target='_blank' > Basketball Reference </a> 
+                    <a className='home-link' href={ leaguePassLink(game.game.date, game.game.away, game.game.home) } target='_blank' rel="noopener noreferrer"> NBA League Pass </a> |
+                    <a className='home-link' href={ basketballReferenceLink(game.game.date, game.game.home) } target='_blank' rel="noopener noreferrer"> Basketball Reference </a> 
                     </td>
                   </tr>
                 </tbody>
