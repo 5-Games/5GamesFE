@@ -104,7 +104,7 @@ const Game = ({ date, homeTeam }) => {
         </div>
         <div className='row'>
           <h3>
-            Appears on the following playlists:
+            This game appears on the following playlists:
           </h3>
           <div className="sub-row">
             { playlistsMap }

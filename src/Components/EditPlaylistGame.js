@@ -41,7 +41,7 @@ const EditPlaylistGame = ({ arrIndex, game }) => {
             <tbody>
               <tr>
                 <td className="input-title-td"> Rating: </td>
-                <td className="expanding-input"> Description: </td>
+                <td className="expanding-input"> Comment: </td>
               </tr>
               <tr>
                 <td className="input-title-td"> <input type="number" id="quantity" name="quantity" min="1" max="10" value={editPlaylistGameRating} onChange={(e) => handleChange(e, 'rating')} /></td>

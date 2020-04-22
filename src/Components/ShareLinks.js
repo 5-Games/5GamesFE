@@ -88,7 +88,7 @@ const ShareLinks = ({ playlist }) => {
           <TwitterShareButton
             url={shareUrl}
             title={title}
-            via="fivegamesapp"
+            via="FiveGamesNBA"
             className="Demo__some-network__share-button"
           >
             <TwitterIcon size={32} round />
