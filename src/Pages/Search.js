@@ -8,7 +8,7 @@ const Search = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault()
-    let raw = await fetch('http://localhost:3000/playlists/?q=' + input)
+    let raw = await fetch('https://five-games-be.herokuapp.com/playlists/?q=' + input)
     let results = await raw.json()
     setSearchResults(results)
     setInput('')

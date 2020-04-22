@@ -1,7 +1,7 @@
 // API CONSTANTS
 
 // Backend Constants
-  const BASE_URL = 'http://localhost:3000';
+  const BASE_URL = 'https://five-games-be.herokuapp.com';
   const USERS_URL = BASE_URL + '/users';
   const PERSIST_URL = BASE_URL + '/auth';
   const LOGIN_URL = BASE_URL + '/login';
