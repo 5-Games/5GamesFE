@@ -57,5 +57,5 @@
 
 # License
 
-Copyright 2019 © [Jacky Feng](https://github.com/jfeng530) [Stephen Keating](https://github.com/stephenkeating)
+Copyright 2019 © [Jacky Feng](https://github.com/jfeng530) & [Stephen Keating](https://github.com/stephenkeating)
 
