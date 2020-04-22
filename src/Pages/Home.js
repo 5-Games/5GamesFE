@@ -50,12 +50,13 @@ const Home = () => {
       <div className='single-column'>
         <div className='row'>
           <div>
-            Please <Link className='home-link' to="/signup">sign up</Link> or <Link className='home-link' to="/login">log in</Link>.
+            This app was designed and created by <a className='home-link' href='https://github.com/stephenkeating' target='_blank' rel="noopener noreferrer">Stephen Keating</a> and <a className='home-link' href='https://github.com/jfeng530' target='_blank' rel="noopener noreferrer">Jacky Feng</a>.
+              Rate, share, and comment on NBA games. Playlists automatically generate links to NBA League Pass (when available) and Basketball Reference.
           </div>
         </div>
         <div className='row'>
           <div>
-          An app by <a className='home-link' href='https://github.com/jfeng530'>Jacky Feng</a> and <a className='home-link' href='https://github.com/stephenkeating'>Stephen Keating</a>.
+            Please <Link className='home-link' to="/signup">sign up</Link> or <Link className='home-link' to="/login">log in</Link>.
           </div>
         </div>
 
