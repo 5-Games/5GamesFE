@@ -21,25 +21,20 @@ const Nav = () => {
         {/* I want to put just the text "Five Games" here as an image as the link to home */}
       </div>
       <div className='nav-links-div'>
-        {/* <NavLink className='nav-link' to="/" >Home</NavLink> */}
         { name  
           ? <> 
-              {/* put links here that show when logged in */}
+              {/* navlinks when a user is logged in */}
               <NavLink className='nav-link' to="/search" activeClassName='active-nav-link'>Search</NavLink>
               <NavLink className='nav-link' to="/playlist/create" activeClassName='active-nav-link'>Create</NavLink>
+              <Link className='nav-link' to="/" onClick={handleLogout}>Logout</Link>
             </>
           : <> 
+              {/* navlinks when no user logged in */}
+              <NavLink className='nav-link' to="/search" activeClassName='active-nav-link'>Search</NavLink>
               <NavLink className='nav-link' to="/signup" activeClassName='active-nav-link'>Signup</NavLink>
               <NavLink className='nav-link' to="/login" activeClassName='active-nav-link'>Login</NavLink>
             </>
-        }
-        { name  
-          ? <Link className='nav-link' to="/" onClick={handleLogout}>
-              Logout
-            </Link>
-          : null
-        }
-        
+        }        
       </div>
     </nav>
   );
