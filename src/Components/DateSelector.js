@@ -49,7 +49,7 @@ const DateSelector = () => {
         return lastGame > date;
       }}
       onChange={date => {
-        dispatch(actions.getSelectGamesByDate(formatDate(date.toISOString())))
+        dispatch(actions.getSelectGamesByDate(formatDate(date)))
       }}
     />
   );
