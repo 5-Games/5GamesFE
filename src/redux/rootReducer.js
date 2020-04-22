@@ -14,7 +14,7 @@ const initialState = {
   selectGames: {
     // When NBA games resume, change the value of date to today
     // date: new Date('March 11, 2020 00:00:00'),
-    date: new Date(1583928000),
+    date: new Date('Wednesday, 11-Mar-20 00:00:00 UTC'),
     games: [],
     method: 'date',
     team: '1',
