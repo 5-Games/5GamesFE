@@ -80,7 +80,8 @@ const Playlist = ({ playlistId }) => {
   : 'loading'
   
   const rightColumn = playlist.playlist_games ? 
-    playlist.playlist_games.map((game, i) => {
+    // the sort is necessary because the BE returns the games in reverse order
+    playlist.playlist_games.sort((a,b) =>  a.id - b.id).map((game, i) => {
       return (
           <div className="simple-game-table-div edit-page-div" key={game.id**2}>
             <div className="simple-game-summary">

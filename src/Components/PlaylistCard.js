@@ -6,6 +6,8 @@ const PlaylistCard = ({ playlist }) => {
   // temporary variable until the return is fixed on the game show page and/or the userplaylists container
   const id = playlist.playlist_id || playlist.id
 
+  console.log(playlist)
+
   const title = playlist.title ?
     playlist.title
     : ''
