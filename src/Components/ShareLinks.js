@@ -90,6 +90,7 @@ const ShareLinks = ({ playlist }) => {
             title={title}
             via="FiveGamesNBA"
             className="Demo__some-network__share-button"
+            // hashtags='nba' 
           >
             <TwitterIcon size={32} round />
           </TwitterShareButton>

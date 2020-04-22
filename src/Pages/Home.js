@@ -31,7 +31,7 @@ const Home = () => {
       <div className='double-column'>
         <h3>
           Welcome to the beta version of 5 games! 
-          App tested on Safari. To report bugs or request features, <a className='home-link' href='https://twitter.com/fivegamesnba' target='_blank' rel="noopener noreferrer">tweet at us @fivegamesnba</a>. 
+          App tested on Chrome. To report bugs or request features, <a className='home-link' href='https://twitter.com/fivegamesnba' target='_blank' rel="noopener noreferrer">tweet at us @fivegamesnba</a>. 
         </h3>
         <div className="sub-row">
           <div>
