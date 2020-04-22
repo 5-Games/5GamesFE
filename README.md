@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>
+  <img align="center" src="https://img.shields.io/badge/PostgreSQL-12.1-336791">
+  <img align="center" src="https://img.shields.io/badge/React-16.12.0-61DAFB">
+  <img align="center" src="https://img.shields.io/badge/React Redux-7.1.3-764ABC">
+  <img align="center" src="https://img.shields.io/badge/Ruby-2.6.1-CC342D">
+  <img align="center" src="https://img.shields.io/badge/Ruby%20On%20Rails-6.0.1-cc0600">
+</p>
 
-## Available Scripts
+# Contents
+- [Overview](#overview)
+  - [Description](#description)
+  - [Features](#features)
+  - [Technologies & Frameworks](#technologies-and-frameworks)
+- [Back-End](#back-end)
+- [Credits](#credits)
+- [License](#license)
 
-In the project directory, you can run:
+&nbsp;
 
-### `yarn start`
+# Overview
+  ### Description
+  5 Games is an NBA playlist sharing web application. Utilizing Ruby on Rails, React, and React Redux, 5 Games allows users to create and share their favorite NBA games throughout the league's history. Rate and comment on games, search for other user's created playlist, and share your favorite playlist on social media.
+  
+  ### Features
+  - Features every NBA game from 1979 to 2019
+  - Create and publish your own playlist by selecting 5 games to add to your personalized playlist
+  - Rate and comment on games that are on your playlist
+  - Search for all published playlist on the site
+  - View the game on Basketball Reference or NBA League Pass
+    
+  ### Technologies and Frameworks
+  #### Front-End
+  - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - [React](https://reactjs.org/)
+  - [React Redux](https://react-redux.js.org/)
+  - [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+  - [React Router](https://reacttraining.com/react-router/)
+  - [JSON Web Tokens](https://jwt.io/)
+  
+  #### Back-End
+  - [Ruby](https://www.ruby-lang.org/en/)
+  - [Ruby on Rails](https://rubyonrails.org/)
+  - [PostgreSQL](https://www.postgresql.org/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+&nbsp;
+ 
+# Back-End
+[5Games Back-End](https://github.com/5-Games/5GamesBE)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+&nbsp;
 
-### `yarn test`
+# Credits
+  - [balldontlie API](https://www.balldontlie.io/)
+  - [Basketball Reference](https://www.basketball-reference.com/)
+  - [NBA.com](https://www.nba.com/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+# License
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Copyright 2019 © [Jacky Feng](https://github.com/jfeng530) & [Stephen Keating](https://github.com/stephenkeating)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
