@@ -15,7 +15,7 @@ const DateSelector = () => {
   const dateFromState = useSelector(state => state.selectGames['date']);
 
   // lastGame is used to prevent the user from selecting dates after the last NBA game on March 11
-  const lastGame = new Date("2020-03-11T04:00:00.000Z"); 
+  const lastGame = new Date("2020-03-11T12:00:00+00:00"); 
 
   // formatDate takes JS Date object and returns in format: YYYY-MM-DD
   const formatDate = (date) => {
@@ -28,7 +28,7 @@ const DateSelector = () => {
         month = '0' + month;
     if (day.length < 2) 
         day = '0' + day;
-      console.log(`${[year, month, day].join('-').toString()}T04:00:00.000Z`)
+      // console.log(`${[year, month, day].join('-').toString()}T04:00:00.000Z`)
     return [year, month, day].join('-').toString();
   }
 
