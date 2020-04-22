@@ -16,7 +16,7 @@ const Playlist = ({ playlistId }) => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    fetch('http://localhost:3000/playlists/' + playlistId)
+    fetch('https://five-games-be.herokuapp.com/playlists/' + playlistId)
       .then(r => r.json())
       .then(res => {
         setPlaylist(res)

@@ -29,7 +29,7 @@ const Game = ({ date, homeTeam }) => {
   // Could use react-document-title instead:
   // https://github.com/gaearon/react-document-title
   useEffect(() => {
-    fetch('http://localhost:3000/games/' + date + '/' + homeTeam)
+    fetch('https://five-games-be.herokuapp.com/games/' + date + '/' + homeTeam)
       .then(r => r.json())
       .then(res => {
         setCurrentG(res, res['linkDate'] = res.date.replace(/-/g,""))
