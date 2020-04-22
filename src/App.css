@@ -8,6 +8,7 @@
   --medBlue: #0B153C;
   --darkBlue: #00092D;
   --gray: #CECCCC;
+  --black: #000000;
 
   /* Example of how to call CSS variables:
     color: var(--blue);
