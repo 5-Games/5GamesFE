@@ -473,7 +473,7 @@ td.right, th.right {
   letter-spacing: 1px;
   transform: rotate(180deg);
   border-left: 1px solid var(--blue);
-  /* margin-top: 1px; */
+  top: 4%;
   height: 90%;
 }
 
