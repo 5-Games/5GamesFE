@@ -67,11 +67,11 @@ const ShareLinks = ({ playlist }) => {
             <FacebookIcon size={32} round />
           </FacebookShareButton>
 
-          <div>
+          {/* <div>
             <FacebookShareCount url={shareUrl} className="Demo__some-network__share-count">
               {count => count}
             </FacebookShareCount>
-          </div>
+          </div> */}
         </div>
 
         {/* <div className="Demo__some-network">
@@ -128,7 +128,7 @@ const ShareLinks = ({ playlist }) => {
           </LinkedinShareButton>
         </div>
 
-        <div className="Demo__some-network">
+        {/* <div className="Demo__some-network">
           <PinterestShareButton
             url={String(window.location)}
             media={`${String(window.location)}/${exampleImage}`}
@@ -140,7 +140,7 @@ const ShareLinks = ({ playlist }) => {
           <div>
             <PinterestShareCount url={shareUrl} className="Demo__some-network__share-count" />
           </div>
-        </div>
+        </div> */}
 
         {/* <div className="Demo__some-network">
           <VKShareButton
@@ -181,9 +181,9 @@ const ShareLinks = ({ playlist }) => {
             <RedditIcon size={32} round />
           </RedditShareButton>
 
-          <div>
+          {/* <div>
             <RedditShareCount url={shareUrl} className="Demo__some-network__share-count" />
-          </div>
+          </div> */}
         </div>
 
         {/* <div className="Demo__some-network">
