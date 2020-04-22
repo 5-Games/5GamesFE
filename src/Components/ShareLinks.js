@@ -53,7 +53,7 @@ import exampleImage from '../five-games-logo-500.png';
 const ShareLinks = ({ playlist }) => {
 
   // console.log(playlist)
-  const shareUrl = `http://localhost:3001/playlists/${playlist.id}`;
+  const shareUrl = `https://fivegames.netlify.app/playlists/${playlist.id}`;
   const title = `Check out this playlist on 5 Games: "${playlist.title}"`;
 
     return (
