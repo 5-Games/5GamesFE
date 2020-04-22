@@ -35,7 +35,7 @@ const Home = () => {
         </h3>
         <div className="sub-row">
           <div>
-            This app was designed and created by <a className='home-link' href='https://github.com/stephenkeating' target='_blank' rel="noopener noreferrer">Stephen Keating</a> and <a className='home-link' href='https://github.com/jfeng530' target='_blank' rel="noopener noreferrer">Jacky Feng</a>.
+            Designed and created by <a className='home-link' href='https://github.com/stephenkeating' target='_blank' rel="noopener noreferrer">Stephen Keating</a> and <a className='home-link' href='https://github.com/jfeng530' target='_blank' rel="noopener noreferrer">Jacky Feng</a>.
               Rate, share, and comment on NBA games. Playlists automatically generate links to NBA League Pass (when available) and Basketball Reference.
           </div>
         </div>
@@ -50,7 +50,7 @@ const Home = () => {
       <div className='single-column'>
         <div className='row'>
           <div>
-            This app was designed and created by <a className='home-link' href='https://github.com/stephenkeating' target='_blank' rel="noopener noreferrer">Stephen Keating</a> and <a className='home-link' href='https://github.com/jfeng530' target='_blank' rel="noopener noreferrer">Jacky Feng</a>.
+            Designed and created by <a className='home-link' href='https://github.com/stephenkeating' target='_blank' rel="noopener noreferrer">Stephen Keating</a> and <a className='home-link' href='https://github.com/jfeng530' target='_blank' rel="noopener noreferrer">Jacky Feng</a>.
               Rate, share, and comment on NBA games. Playlists automatically generate links to NBA League Pass (when available) and Basketball Reference.
           </div>
         </div>
