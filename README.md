@@ -57,6 +57,6 @@
 
 
 # License
-
+https://img.shields.io/github/license/5-Games/5GamesFE
 Copyright 2019 © [Jacky Feng](https://github.com/jfeng530) & [Stephen Keating](https://github.com/stephenkeating)
 
