@@ -1,3 +1,4 @@
+<p align="center"><img width=50% src="https://i.imgur.com/6Ky5MZE.png"></p>
 <p>
   <img align="center" src="https://img.shields.io/badge/PostgreSQL-12.1-336791">
   <img align="center" src="https://img.shields.io/badge/React-16.12.0-61DAFB">
