@@ -28,8 +28,8 @@ const DateSelector = () => {
         month = '0' + month;
     if (day.length < 2) 
         day = '0' + day;
-      console.log([year, month, day].join('-').toString())
-    return [year, month, day].join('-').toString();
+      console.log([year, month, day].join('-').toString() + 'T04:00:00.000Z')
+    return [year, month, day].join('-').toString() + 'T04:00:00.000Z';
   }
 
   // On loading component, get fetch games immediately. Comment after function disables the warning.
