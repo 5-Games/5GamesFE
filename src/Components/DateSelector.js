@@ -34,7 +34,7 @@ const DateSelector = () => {
 
   // On loading component, get fetch games immediately. Comment after function disables the warning.
   useEffect(() => {
-    dispatch(actions.getSelectGamesByDate(dateFromState))
+    dispatch(actions.getSelectGamesByDate(formatDate(dateFromState)))
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 
@@ -49,7 +49,7 @@ const DateSelector = () => {
         return lastGame > date;
       }}
       onChange={date => {
-        dispatch(actions.getSelectGamesByDate(formatDate(date)))
+        dispatch(actions.getSelectGamesByDate(formatDate(date.toISOString())))
       }}
     />
   );
